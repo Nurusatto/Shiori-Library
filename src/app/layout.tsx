@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { M_PLUS_Rounded_1c, Work_Sans } from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import "@/styles/index.scss";
+
+const geistSans = M_PLUS_Rounded_1c({
+  weight: ["400", "500"],
+  variable: "--font-alt",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geistMono = Work_Sans({
+  weight: ["400", "500"],
+  variable: "--font-base",
   subsets: ["latin"],
 });
 

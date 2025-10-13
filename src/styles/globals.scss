@@ -1,0 +1,49 @@
+[data-theme="light"] {
+  /* Background */
+  --color-background: #f7f9fc; /* основной фон — светлый */
+  --color-surface: #ffffff; /* панели, карточки, модальные окна */
+  --color-accent-background: #e3f2fa; /* подсветка блоков, hover фон карточек */
+  --color-accent-glow: #cce6f7; /* мягкий блеск / сияние вокруг элементов */
+
+  /* Text */
+  --color-text-primary: #121416; /* основной текст — почти чёрный */
+  --color-text-secondary: #707781; /* подписи, вспомогательный текст */
+  --color-text-accent: #2b95c9; /* лёгкий голубой для выделений / ссылок */
+
+  /* Accent */
+  --color-primary: #2b95c9; /* основной голубой акцент */
+  --color-primary-hover: #3bafda; /* hover / active состояние акцента */
+  --color-primary-glow: rgba(43, 149, 201, 0.3); /* для эффектов свечения */
+
+  /* Borders */
+  --color-border: #dde2e9; /* разделители, рамки */
+
+  /* Status */
+  --color-success: #4caf50; /* успех */
+  --color-error: #f44336; /* ошибка */
+  --color-warning: #ff9800; /* предупреждение */
+
+  /* Overlay */
+  --color-overlay: rgba(255, 255, 255, 0.5); /* модальные затемнения */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+  /* Glow / sparkle */
+  --shadow-glow-sm: 0 0 6px rgba(43, 149, 201, 0.3);
+  --shadow-glow-md: 0 0 12px rgba(43, 149, 201, 0.4);
+  --shadow-glow-lg: 0 0 20px rgba(43, 149, 201, 0.5);
+}
+html {
+  &.isLock {
+    overflow: hidden;
+  }
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}

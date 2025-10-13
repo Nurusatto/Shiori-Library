@@ -1,0 +1,20 @@
+@use "./media.scss" as *;
+@use "./functions.scss" as *;
+
+:root {
+  --container-width: #{rem(1200)};
+  --container-padding-x: #{rem(20)};
+
+  @include tablet {
+    --container-width: #{rem(800)};
+    --container-padding-x: #{rem(20)};
+  }
+  @include mobile {
+    --container-width: #{rem(600)};
+    --container-padding-x: #{rem(12)};
+  }
+  @include mobile-s {
+    --container-width: #{rem(400)};
+    --container-padding-x: #{rem(10)};
+  }
+}

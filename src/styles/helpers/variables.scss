@@ -1,0 +1,40 @@
+:root {
+  /* Background */
+  --color-background: #000000; /* основной фон */
+  --color-surface: #1c1e22; /* панели, карточки, модальные окна */
+  --color-accent-background: #22303f; /* подсветка блоков, hover фон карточек */
+  --color-accent-glow: #3c5c7a; /* мягкий блеск/сияние вокруг элементов */
+
+  /* Text */
+  --color-text-primary: #e6e9ef; /* основной текст — почти белый */
+  --color-text-secondary: #a1a6b1; /* подписи, вспомогательный текст */
+  --color-text-accent: #b0e0ff; /* лёгкий голубой для выделений/ссылок */
+
+  /* Accent */
+  --color-primary: #3bafda; /* основной голубой акцент */
+  --color-primary-hover: #57c2ed; /* hover / active состояние акцента */
+  --color-primary-glow: rgba(59, 175, 218, 0.3); /* для эффектов свечения */
+
+  /* Borders */
+  --color-border: #2c2f36; /* разделители, рамки */
+
+  /* Status */
+  --color-success: #4caf50; /* успех */
+  --color-error: #f44336; /* ошибка */
+  --color-warning: #ff9800; /* предупреждение */
+
+  /* Overlay */
+  --color-overlay: rgba(0, 0, 0, 0.5); /* модальные затемнения */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+  /* Glow / sparkle */
+  --shadow-glow-sm: 0 0 6px rgba(91, 172, 218, 0.3);
+  --shadow-glow-md: 0 0 12px rgba(91, 172, 218, 0.4);
+  --shadow-glow-lg: 0 0 20px rgba(91, 172, 218, 0.5);
+
+  --transition-duration: 0.2s;
+}
