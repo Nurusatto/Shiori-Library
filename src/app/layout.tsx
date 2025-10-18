@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { M_PLUS_Rounded_1c, Work_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import "@/styles/index.scss";
+import { Header } from "@/widgets/Header";
 
-const geistSans = M_PLUS_Rounded_1c({
-  weight: ["400", "500"],
-  variable: "--font-alt",
-  subsets: ["latin"],
-});
-
-const geistMono = Work_Sans({
+const InterFont = Inter({
   weight: ["400", "500"],
   variable: "--font-base",
   subsets: ["latin"],
@@ -27,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${InterFont.variable}`}>
+        <Header />
         {children}
       </body>
     </html>

@@ -1,8 +1,7 @@
-export const BOOK_FILTERS = {
-  SEARCH: "Search",
-  FILTER: "Filter",
-  PROFILE: "Profile",
-  COLLECTION: "Collection",
-} as const;
+export const LINKS = [
+  { name: "Home", path: "/" },
+  { name: "Search", path: "/search" },
+  { name: "Filter", path: "/filter" },
+] as const;
 
-export type BookFilterType = (typeof BOOK_FILTERS)[keyof typeof BOOK_FILTERS];
+export type BookFilterType = (typeof LINKS)[number]["name"];

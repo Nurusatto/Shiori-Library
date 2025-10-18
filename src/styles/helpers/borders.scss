@@ -1,13 +1,13 @@
 @use "functions.scss" as *;
 
 :root {
-  --border-radius-sm: rem(4);
-  --border-radius-md: rem(8);
-  --border-radius-lg: rem(16);
+  --border-radius-sm: #{rem(4)};
+  --border-radius-md: #{rem(8)};
+  --border-radius-lg: #{rem(16)};
 
-  --border-width-thin: rem(1);
-  --border-width-medium: rem(2);
-  --border-width-thick: rem(4);
+  --border-width-thin: #{rem(1)};
+  --border-width-medium: #{rem(2)};
+  --border-width-thick: #{rem(4)};
 
   --border-style-default: solid;
 }

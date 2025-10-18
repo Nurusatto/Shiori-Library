@@ -1,0 +1,25 @@
+.Header {
+  &Inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: rem(20);
+  }
+
+  &Nav {
+    display: flex;
+    gap: rem(30);
+  }
+
+  &Links {
+    padding: rem(10);
+    border: var(--border-width-medium) var(--border-style-default)
+      var(--color-border);
+    border-radius: var(--border-radius-md);
+
+    &.isActive {
+      background-color: var(--color-primary-hover);
+      color: black;
+    }
+  }
+}
