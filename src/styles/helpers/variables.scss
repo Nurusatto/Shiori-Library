@@ -1,6 +1,6 @@
 :root {
   /* Background */
-  --color-background: #09090b; /* основной фон */
+  --color-background: #000000; /* основной фон */
   --color-surface: #1c1e22; /* панели, карточки, модальные окна */
   --color-accent-background: #22303f; /* подсветка блоков, hover фон карточек */
   --color-accent-glow: #3c5c7a; /* мягкий блеск/сияние вокруг элементов */
@@ -14,9 +14,6 @@
   --color-primary: #3bafda; /* основной голубой акцент */
   --color-primary-hover: #57c2ed; /* hover / active состояние акцента */
   --color-primary-glow: rgba(59, 175, 218, 0.3); /* для эффектов свечения */
-
-  /* Borders */
-  --color-border: #2c2f36; /* разделители, рамки */
 
   /* Status */
   --color-success: #4caf50; /* успех */

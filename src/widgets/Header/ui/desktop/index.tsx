@@ -8,10 +8,10 @@ import { usePathname } from "next/navigation";
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 
 export const HeaderDesktop = () => {
-  const url = usePathname();
+  const url = usePathname() || "";
 
   return (
-    <header>
+    <header className={styles.Header}>
       <div className={`container ${styles.HeaderInner}`}>
         <nav className={styles.HeaderNav}>
           {LINKS.map((link) => (
@@ -23,6 +23,7 @@ export const HeaderDesktop = () => {
                 isActiveLink(link.path, url) && styles.isActive
               )}
             >
+              {<link.icon />}
               {link.name}
             </Link>
           ))}
