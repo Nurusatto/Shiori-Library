@@ -8,12 +8,15 @@ import { isActiveLink } from "@/shared/hooks/isActiveLink";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 
+import { useScrolled } from "@/shared/hooks/useScrolled";
+
 export const HeaderMobile = () => {
   const [open, setOpen] = useState(false);
   const url = usePathname() || "";
+  const Scroll = useScrolled();
 
   return (
-    <header className={styles.Header}>
+    <header className={clsx(styles.Header, Scroll && styles.Srolled)}>
       <div className={`container ${styles.HeaderInner}`}>
         <nav className={clsx(styles.HeaderNav, open && styles.isActive)}>
           {LINKS.map((link) => (

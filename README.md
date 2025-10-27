@@ -8,12 +8,11 @@
 
 ## 🌸 Main Features
 
-1. **Book Search** — search by title and author
-2. **Book Pages** — detailed information about a book
-3. **Favorites** — list of favorite books
-4. **Profile** — user information and their collection
-5. **Collection** — adding and managing user's books
-6. **Genre Filter** — sorting and filtering by categories
+**Book Search** — search by title and author
+**Book Pages** — detailed information about a book
+**Favorites** — list of favorite books
+**Collection** — adding and managing user's books
+**Genre Filter** — sorting and filtering by categories
 
 ---
 

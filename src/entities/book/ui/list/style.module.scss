@@ -1,0 +1,13 @@
+.Book {
+  &-list {
+    display: grid;
+    gap: rem(10);
+    padding-block: rem(20);
+    align-items: stretch;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}

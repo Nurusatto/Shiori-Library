@@ -1,7 +1,5 @@
+import { HomePage } from "@/pages/Home/";
+
 export default function Home() {
-  return (
-    <>
-      <h1>body</h1>
-    </>
-  );
+  return <HomePage />;
 }

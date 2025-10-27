@@ -1,0 +1,33 @@
+.Gallery {
+  &__wrap {
+    padding-block: rem(10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(10);
+  }
+
+  &-svg {
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: var(--accent-color, #ff5959);
+      transform: rotate(-15deg);
+    }
+
+    &.spinning {
+      animation: spin 0.8s linear infinite;
+      color: var(--accent-color, #ff5959);
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

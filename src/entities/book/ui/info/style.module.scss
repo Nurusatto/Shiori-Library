@@ -1,0 +1,41 @@
+.Book {
+  &__block {
+    display: flex;
+    padding-block: rem(20);
+    gap: rem(30);
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__wrap {
+    @include mobile {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__cover {
+    border-radius: var(--border-radius-md);
+    border: var(--color-border) var(--border-width-thick)
+      var(--border-style-default);
+    min-width: rem(125);
+    min-height: rem(160);
+    box-shadow: var(--shadow-glow-md);
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(5);
+    max-width: rem(500);
+  }
+
+  &__badge {
+    border: var(--border-1);
+    border-radius: var(--border-radius-sm);
+    padding: rem(5);
+    color: var(--color-primary);
+  }
+}

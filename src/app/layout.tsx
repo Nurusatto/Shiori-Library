@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "@/styles/index.scss";
+
 import { Header } from "@/widgets/Header";
+
+import { ClientProvider } from "@/init/ClientProvider";
 
 const InterFont = Inter({
   weight: ["400", "500"],
@@ -23,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${InterFont.variable}`}>
-        <Header />
-        {children}
+        <ClientProvider>
+          <Header />
+          {children}
+        </ClientProvider>
       </body>
     </html>
   );

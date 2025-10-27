@@ -2,6 +2,15 @@
   border-bottom: var(--border-width-medium) var(--border-style-default)
     var(--color-border);
 
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+  z-index: var(--z-index-overlay);
+
+  &.Srolled {
+    box-shadow: var(--shadow-glow-md);
+  }
+
   &Inner {
     display: flex;
     justify-content: end;

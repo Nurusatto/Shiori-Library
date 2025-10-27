@@ -12,4 +12,7 @@
   --border-style-default: solid;
 
   --color-border: #2c2f36;
+
+  --border-1: var(--color-border) var(--border-style-default)
+    var(--border-width-thin);
 }
