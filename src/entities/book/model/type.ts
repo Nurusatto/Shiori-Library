@@ -15,7 +15,7 @@ export type BookItem = {
 };
 
 export type BookInf = {
-  authors: [{ key: string }];
+  authors: { author: { key: string }; type: { key: string } }[];
   covers: number[];
   created: { type: string; value: string };
   description: string | { type: string; value: string };

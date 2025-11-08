@@ -15,7 +15,7 @@ export const Bookinfo = ({ bookObj }: Prop) => {
   return (
     <section className={cn(styles, "Book__section")}>
       <InfoBlock info={bookObj} />
-      <AuthorBlock info={authors} />
+      <AuthorBlock authors={authors} />
     </section>
   );
 };

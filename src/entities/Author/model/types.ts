@@ -1,11 +1,12 @@
 export type AuthorData = {
+  id: number;
   name: string;
   bio?: string | { value: string };
   birth_date?: string;
   death_date?: string;
   photos?: number[];
-  work_count?: number;
-  alternate_names?: string[];
+  personal_name: string;
+  key: string;
 };
 
 export type AuthorObj = {

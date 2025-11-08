@@ -1,0 +1,43 @@
+.Author {
+  &__wrap {
+    display: flex;
+    gap: rem(20);
+    align-items: center;
+    justify-content: center;
+    padding: rem(20);
+    border: var(--border-1);
+    border-radius: var(--border-radius-sm);
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__cover {
+    width: 120px;
+    height: 192px;
+    object-fit: cover;
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-glow-lg);
+    background-color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-warning);
+    font-size: 0.8rem;
+    font-weight: 500;
+    flex-shrink: 0;
+
+    &::before {
+      content: "No cover";
+    }
+  }
+}

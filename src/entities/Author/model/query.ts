@@ -1,11 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import { getAuthor } from "./api";
-import { AuthorData } from "./types";
 
-export const useAuthor = (authorKey: string) => {
-  return useQuery<AuthorData>({
-    queryKey: ["getAuthor"],
-    queryFn: () => getAuthor(authorKey),
-    enabled: !!authorKey,
+export const useAuthors = (authorKeys: string[]) => {
+  return useQueries({
+    queries: authorKeys.map((key) => ({
+      queryKey: ["getAuthor", key],
+      queryFn: () => getAuthor(key),
+      enabled: !!key,
+    })),
   });
 };
