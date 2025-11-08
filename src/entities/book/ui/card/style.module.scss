@@ -6,6 +6,8 @@
     padding: rem(20);
     border: var(--border-1);
     border-radius: var(--border-radius-sm);
+    max-width: rem(575);
+    min-height: rem(310);
 
     @include tablet {
       flex-direction: column;
@@ -26,6 +28,7 @@
     color: var(--color-warning);
     font-size: 0.8rem;
     font-weight: 500;
+    flex-shrink: 0;
 
     &::before {
       content: "No cover";
@@ -39,7 +42,9 @@
   }
 
   &__title {
-    text-wrap: wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: rem(375);
   }
 
   &__author {

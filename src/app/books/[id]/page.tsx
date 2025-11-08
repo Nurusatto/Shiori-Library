@@ -5,8 +5,14 @@ import { notFound } from "next/navigation";
 //modules
 import { BookPage } from "@/pages/book";
 
-export default async function Book({ params }: { params: { id: string } }) {
-  const res = await fetch(`https://openlibrary.org/works/${params.id}.json`);
+export default async function Book({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
+  const res = await fetch(`https://openlibrary.org/works/${id}.json`);
   if (!res.ok) return notFound();
   const book = await res.json();
 

@@ -16,11 +16,11 @@ export const BookList = ({ query }: Prop) => {
 
   return (
     <section className={cn(styles, "Book")}>
-      <div className={cn(styles, "Book-list")}>
+      <ul className={cn(styles, "Book-list")}>
         {data?.docs?.map((book: BookItem) => (
           <BookCard key={book.key} book={book} />
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

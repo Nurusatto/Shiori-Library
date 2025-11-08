@@ -2,10 +2,6 @@ export type LibraryResponse = {
   docs: BookItem[];
 };
 
-export type AuthorRef = {
-  key: string;
-};
-
 export type BookItem = {
   key: string; //id book
   title: string;
@@ -19,10 +15,16 @@ export type BookItem = {
 };
 
 export type BookInf = {
-  first_publish_date?: string;
+  authors: [{ key: string }];
+  covers: number[];
+  created: { type: string; value: string };
+  description: string | { type: string; value: string };
   key: string;
+  last_modified: { type: string; value: string };
+  latest_revision: number;
+  revision: number;
+  subjects: string[];
   title: string;
-  subjects?: string[];
-  covers?: number[];
-  authors?: AuthorRef[];
+  type: { key: string };
+  first_publish_date?: string;
 };
