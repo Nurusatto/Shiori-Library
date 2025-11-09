@@ -1,0 +1,67 @@
+.Slider {
+  &__section {
+    padding-block: rem(20);
+  }
+
+  &__inner {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__cover {
+    width: rem(120);
+    height: rem(190);
+  }
+
+  &__arrows {
+    margin-block: rem(20);
+    display: flex;
+    justify-content: center;
+    gap: rem(10);
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > h1 {
+      padding-inline: rem(10);
+    }
+  }
+
+  &__line {
+    background-color: var(--color-border);
+    flex: 1;
+    height: 1px;
+  }
+
+  &__arrow {
+    background-color: var(--color-background);
+    border: var(--border-1);
+    border-radius: var(--border-radius-sm);
+    padding: rem(10);
+    display: flex;
+    justify-content: center;
+    transition: var(--transition-duration);
+
+    @include hover {
+      background-color: var(--color-primary);
+      transform: translateY(-3px);
+    }
+
+    &-icon {
+      color: var(--color-text-primary);
+    }
+  }
+
+  &__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(200);
+    padding-block: rem(10);
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+  }
+}

@@ -30,7 +30,7 @@ export const AuthorBlock = ({ authors }: AuthorBlockProps) => {
   }
 
   return (
-    <div className={cn(styles, "Author__block")}>
+    <div className={cn(styles, "Author__block")} id="author">
       <div className={cn(styles, "Author__title")}>
         <div className={cn(styles, "Author__line")}></div>
         <h2>{authors.length === 1 ? "Author" : "Authors"}</h2>

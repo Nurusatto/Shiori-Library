@@ -3,17 +3,32 @@ import Link from "next/link";
 import clsx from "clsx";
 
 import { LINKS } from "@/config/links/Header";
+import { LINKS as BookNavigation } from "@/config/links/bookPage";
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useScrolled } from "@/shared/hooks/useScrolled";
+import { cn } from "@/shared/lib/cn";
 
 export const HeaderMobile = () => {
   const [open, setOpen] = useState(false);
   const url = usePathname() || "";
   const Scroll = useScrolled();
+  const isBookPage = url.startsWith("/books");
+
+  useEffect(() => {
+    const html = document.documentElement;
+    if (open) {
+      html.classList.add("isLock");
+    } else {
+      html.classList.remove("isLock");
+    }
+
+    // чистим при unmount
+    return () => html.classList.remove("isLock");
+  }, [open]);
 
   return (
     <header className={clsx(styles.Header, Scroll && styles.Srolled)}>
@@ -34,6 +49,24 @@ export const HeaderMobile = () => {
             </Link>
           ))}
         </nav>
+        {isBookPage && (
+          <nav
+            className={clsx(
+              cn(styles, "nav"),
+              open && cn(styles, "nav__hidden")
+            )}
+          >
+            <ul className={cn(styles, "nav__list")}>
+              {BookNavigation.map((link) => (
+                <li key={link.name} className={cn(styles, "nav__item")}>
+                  <a href={link.href} className={cn(styles, "nav__link")}>
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
         <button
           type="button"
           className={clsx(styles.HeaderBurger, open && styles.isActive)}

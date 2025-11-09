@@ -139,3 +139,18 @@
     }
   }
 }
+
+.nav {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &__list {
+    display: flex;
+    gap: rem(20);
+  }
+
+  &__hidden {
+    display: none;
+  }
+}

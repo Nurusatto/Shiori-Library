@@ -1,5 +1,6 @@
 .Book {
   &__section {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: rem(20);

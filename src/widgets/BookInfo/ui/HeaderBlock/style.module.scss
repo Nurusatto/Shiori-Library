@@ -1,0 +1,26 @@
+.Header {
+  position: sticky;
+  z-index: var(--z-index-overlay);
+  right: 0;
+  top: rem(20);
+  margin-top: rem(10);
+  max-width: rem(250);
+  border: var(--border-1);
+  padding: rem(10);
+  margin-left: auto;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-background);
+
+  &__list {
+    padding-block: rem(10);
+    display: flex;
+    justify-content: center;
+    gap: rem(30);
+  }
+
+  &__item {
+    @include hover {
+      color: var(--color-primary-hover);
+    }
+  }
+}

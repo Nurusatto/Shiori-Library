@@ -8,6 +8,7 @@
     border-radius: var(--border-radius-sm);
     max-width: rem(575);
     min-height: rem(310);
+    flex: 1 1 calc(33.333% - 20px);
 
     @include tablet {
       flex-direction: column;
