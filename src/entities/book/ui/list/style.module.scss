@@ -6,6 +6,11 @@
     align-items: stretch;
     grid-template-columns: repeat(2, 1fr);
 
+    &.row {
+      display: flex;
+      gap: rem(10);
+    }
+
     @include mobile {
       grid-template-columns: 1fr;
     }

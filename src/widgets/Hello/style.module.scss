@@ -1,0 +1,58 @@
+.Hello {
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  &__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    > h1 {
+      text-align: center;
+    }
+
+    > span {
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &__recom {
+    display: flex;
+    padding-block: rem(10);
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__sakura {
+    display: inline-block;
+    animation: flower-dance 10s linear infinite;
+
+    @keyframes flower-dance {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  &__btn {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-md);
+    border: var(--border-1);
+    color: var(--color-primary);
+    padding: rem(10);
+    transition: var(--transition-duration);
+
+    @include hover {
+      transform: translateY(-3px);
+      color: var(--color-primary-hover);
+    }
+  }
+}

@@ -15,7 +15,7 @@ export const BookGallery = () => {
 
   return (
     <>
-      <div className={cn(styles, "Gallery__wrap")}>
+      <section className={cn(styles, "Gallery__wrap")}>
         <h1 className={cn(styles, "Gallery-title")}>Random Books</h1>
         <RotateCcw
           onClick={() => query.refetch()}
@@ -24,7 +24,7 @@ export const BookGallery = () => {
             query.isFetching && cn(styles, "spinning")
           )}
         />
-      </div>
+      </section>
       <BookList query={query} />
     </>
   );

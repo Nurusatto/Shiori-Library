@@ -3,7 +3,7 @@
 import { notFound } from "next/navigation";
 
 //modules
-import { BookPage } from "@/pages/book";
+import { BookPage } from "./bookPage";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
