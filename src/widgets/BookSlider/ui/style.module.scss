@@ -1,26 +1,26 @@
 .Slider {
-  &__section {
+  &Section {
     padding-block: rem(20);
   }
 
-  &__inner {
+  &Inner {
     margin: 0 auto;
     position: relative;
   }
 
-  &__cover {
+  &Cover {
     width: rem(120);
     height: rem(190);
   }
 
-  &__arrows {
+  &Arrows {
     margin-block: rem(20);
     display: flex;
     justify-content: center;
     gap: rem(10);
   }
 
-  &__title {
+  &Title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,13 +30,13 @@
     }
   }
 
-  &__line {
+  &Line {
     background-color: var(--color-border);
     flex: 1;
     height: 1px;
   }
 
-  &__arrow {
+  &Arrow {
     background-color: var(--color-background);
     border: var(--border-1);
     border-radius: var(--border-radius-sm);
@@ -50,12 +50,12 @@
       transform: translateY(-3px);
     }
 
-    &-icon {
+    &Icon {
       color: var(--color-text-primary);
     }
   }
 
-  &__slide {
+  &Slide {
     display: flex;
     justify-content: center;
     align-items: center;

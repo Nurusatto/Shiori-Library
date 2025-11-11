@@ -1,7 +1,6 @@
 "use client";
 
 import { LINKS } from "@/config/links/bookPage";
-import { cn } from "@/shared/lib/cn";
 
 import styles from "./style.module.scss";
 import clsx from "clsx";
@@ -13,11 +12,11 @@ export const HeaderBlock = () => {
 
   if (!resposive) return null;
   return (
-    <div className={clsx(cn(styles, "Header"))}>
-      <ul className={cn(styles, "Header__list")}>
+    <div className={clsx(styles.Header)}>
+      <ul className={styles.HeaderList}>
         {LINKS.map((link) => (
-          <li key={link.name} className={cn(styles, "Header__item")}>
-            <a href={link.href} className={cn(styles, "Header__link")}>
+          <li key={link.name} className={styles.HeaderItem}>
+            <a href={link.href} className={styles.HeaderLink}>
               {link.name}
             </a>
           </li>

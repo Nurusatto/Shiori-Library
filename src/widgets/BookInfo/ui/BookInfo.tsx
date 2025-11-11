@@ -1,5 +1,4 @@
 import styles from "./style.module.scss";
-import { cn } from "@/shared/lib/cn";
 
 //blocks
 import { BookInfo as InfoBlock, BookInf } from "@/entities/book";
@@ -13,7 +12,7 @@ export const Bookinfo = ({ bookObj }: Prop) => {
   const authors = bookObj.authors;
 
   return (
-    <section className={cn(styles, "Book__section")}>
+    <section className={styles.BookSection}>
       <InfoBlock info={bookObj} />
       <AuthorBlock authors={authors} />
     </section>

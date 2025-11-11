@@ -1,11 +1,11 @@
 .Hello {
-  &__section {
+  &Section {
     display: flex;
     flex-direction: column;
     gap: rem(10);
   }
 
-  &__block {
+  &Block {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
     }
   }
 
-  &__recom {
+  &Recom {
     display: flex;
     padding-block: rem(10);
     justify-content: center;
@@ -28,7 +28,7 @@
     align-items: center;
   }
 
-  &__sakura {
+  &Sakura {
     display: inline-block;
     animation: flower-dance 10s linear infinite;
 
@@ -42,7 +42,7 @@
     }
   }
 
-  &__btn {
+  &Btn {
     background-color: var(--color-background);
     border-radius: var(--border-radius-md);
     border: var(--border-1);

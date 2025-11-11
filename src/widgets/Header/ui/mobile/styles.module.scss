@@ -145,12 +145,12 @@
   left: 50%;
   transform: translateX(-50%);
 
-  &__list {
+  &List {
     display: flex;
     gap: rem(20);
   }
 
-  &__hidden {
+  &Hidden {
     display: none;
   }
 }

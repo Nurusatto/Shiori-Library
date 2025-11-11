@@ -2,7 +2,6 @@ import Image from "next/image";
 import { AuthorData } from "../../model/types";
 
 import styles from "./style.module.scss";
-import { cn } from "@/shared/lib/cn";
 
 type AuthorCardProps = {
   obj: AuthorData;
@@ -10,8 +9,8 @@ type AuthorCardProps = {
 
 export const AuthorCard = ({ obj }: AuthorCardProps) => {
   return (
-    <li className={cn(styles, "Author__wrap")}>
-      <div className={cn(styles, "Author__inner")}>
+    <li className={styles.AuthorWrap}>
+      <div className={styles.AuthorInner}>
         {obj?.photos?.length ? (
           <Image
             width={128}
@@ -19,10 +18,10 @@ export const AuthorCard = ({ obj }: AuthorCardProps) => {
             quality={90}
             alt="Author photo"
             src={`https://covers.openlibrary.org/a/id/${obj.photos[0]}-M.jpg`}
-            className={cn(styles, "Author__cover")}
+            className={styles.AuthorCover}
           />
         ) : (
-          <div className={cn(styles, "Author__cover")}></div>
+          <div className={styles.AuthorCover}></div>
         )}
         <h1>{obj.name}</h1>
       </div>

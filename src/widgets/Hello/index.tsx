@@ -2,18 +2,17 @@
 
 import { CatLoader } from "@/shared/ui/CatLoader";
 import { useTip } from "./model/query";
-import { cn } from "@/shared/lib/cn";
 import styles from "./style.module.scss";
 
 export const Hello = () => {
   const { data, isLoading, refetch, isFetching } = useTip();
 
   return (
-    <section className={cn(styles, "Hello__section")}>
-      <div className={cn(styles, "Hello__block")}>
+    <section className={styles.HelloSection}>
+      <div className={styles.HelloBlock}>
         <h1>
-          <span className={cn(styles, "Hello__sakura")}>🌸</span>Welcome to
-          Shiori Library!
+          <span className={styles.HelloSakura}>🌸</span>Welcome to Shiori
+          Library!
         </h1>
         <h4 className="h4">
           Explore thousands of books and authors. Start your reading journey
@@ -21,11 +20,11 @@ export const Hello = () => {
         </h4>
         <span>We only provide book information, not full editions</span>
       </div>
-      <div className={cn(styles, "Hello__recom")}>
+      <div className={styles.HelloRecom}>
         {isLoading && <CatLoader />}
         {data && !isFetching && <h2>{data}</h2>}
         {isFetching && <h2>Loading...</h2>}
-        <button className={cn(styles, "Hello__btn")} onClick={() => refetch()}>
+        <button className={styles.HelloBtn} onClick={() => refetch()}>
           Find Another Book
         </button>
       </div>

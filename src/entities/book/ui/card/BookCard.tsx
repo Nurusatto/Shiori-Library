@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { BookItem } from "../../model/type";
-import { cn } from "@/shared/lib/cn";
 
 import styles from "./style.module.scss";
 import Link from "next/link";
@@ -17,7 +16,7 @@ export const BookCard = ({ book }: Prop) => {
       <Link
         href={`/books/${bookId}`}
         key={book.title}
-        className={cn(styles, "Book__card")}
+        className={styles.BookCard}
       >
         {book?.cover_i ? (
           <Image
@@ -26,25 +25,21 @@ export const BookCard = ({ book }: Prop) => {
             width={128}
             height={192}
             quality={90}
-            className={cn(styles, "Book__cover")}
+            className={styles.BookCover}
           />
         ) : (
-          <div className={cn(styles, "Book__cover")}></div>
+          <div className={styles.BookCover}></div>
         )}
-        <div className={cn(styles, "Book__info")}>
-          <h1 className={cn(styles, "Book__title")}>{book.title}</h1>
+        <div className={styles.BookInfo}>
+          <h1 className={styles.BookTitle}>{book.title}</h1>
           {book.author_name && (
-            <span className={cn(styles, "Book__author")}>
-              {book.author_name[0]}
-            </span>
+            <span className={styles.BookAuthor}>{book.author_name[0]}</span>
           )}
           {book.first_publish_year && (
-            <span className={cn(styles, "Book__date")}>
-              {book.first_publish_year}
-            </span>
+            <span className={styles.BookDate}>{book.first_publish_year}</span>
           )}
           {book.language && (
-            <span className={cn(styles, "Book__language")}>
+            <span className={styles.BookLanguage}>
               {book.language.join(", ")}
             </span>
           )}

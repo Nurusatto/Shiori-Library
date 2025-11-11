@@ -1,5 +1,5 @@
 .Author {
-  &__wrap {
+  &Wrap {
     display: flex;
     gap: rem(20);
     align-items: center;
@@ -13,7 +13,7 @@
     }
   }
 
-  &__inner {
+  &Inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +21,7 @@
     flex: 1 1 calc(33.333% - 20px);
   }
 
-  &__cover {
+  &Cover {
     width: 120px;
     height: 192px;
     object-fit: cover;

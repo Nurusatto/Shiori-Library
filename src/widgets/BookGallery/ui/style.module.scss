@@ -1,5 +1,5 @@
 .Gallery {
-  &__wrap {
+  &Wrap {
     padding-block: rem(10);
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
     gap: rem(10);
   }
 
-  &-svg {
+  &Svg {
     cursor: pointer;
     transition: transform 0.2s ease, color 0.2s ease;
 

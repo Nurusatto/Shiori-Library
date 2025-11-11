@@ -4,7 +4,6 @@ import { AuthorObj } from "@/entities/Author/index";
 import { AuthorCard } from "@/entities/Author/ui/card";
 
 import styles from "./style.module.scss";
-import { cn } from "@/shared/lib/cn";
 import { CatLoader } from "@/shared/ui/CatLoader";
 import clsx from "clsx";
 
@@ -30,17 +29,14 @@ export const AuthorBlock = ({ authors }: AuthorBlockProps) => {
   }
 
   return (
-    <div className={cn(styles, "Author__block")} id="author">
-      <div className={cn(styles, "Author__title")}>
-        <div className={cn(styles, "Author__line")}></div>
+    <div className={styles.AuthorBlock} id="author">
+      <div className={styles.AuthorTitle}>
+        <div className={styles.AuthorLine}></div>
         <h2>{authors.length === 1 ? "Author" : "Authors"}</h2>
-        <div className={cn(styles, "Author__line")}></div>
+        <div className={styles.AuthorLine}></div>
       </div>
       <ul
-        className={clsx(
-          cn(styles, "Author__list"),
-          isSingleAuthor && cn(styles, "isSingle")
-        )}
+        className={clsx(styles.AuthorList, isSingleAuthor && styles.isSingle)}
       >
         {authorQueries.map((query) => {
           return <AuthorCard obj={query.data} key={query.data.key} />;

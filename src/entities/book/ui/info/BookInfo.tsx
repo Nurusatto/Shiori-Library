@@ -1,4 +1,3 @@
-import { cn } from "@/shared/lib/cn";
 import styles from "./style.module.scss";
 import Image from "next/image";
 import { BookInf } from "../../model/type";
@@ -13,34 +12,34 @@ type Prop = {
 
 export const BookInfo = ({ info }: Prop) => {
   return (
-    <div className={cn(styles, "Book__info-block")}>
-      <div className={cn(styles, "Book__wrap")}>
+    <div className={styles.BookInfoBlock}>
+      <div className={styles.BookWrap}>
         {info?.covers?.length ? (
           <Image
             alt="book image"
             width={128}
             height={161}
             style={{ objectFit: "contain" }}
-            className={cn(styles, "Book__cover")}
+            className={styles.BookCover}
             src={`https://covers.openlibrary.org/b/id/${info.covers[0]}-L.jpg`}
           />
         ) : (
-          <div className={cn(styles, "Book__no-Cover")}>No cover available</div>
+          <div className={styles.BookNoCover}>No cover available</div>
         )}
       </div>
-      <div className={cn(styles, "Book__details")}>
-        <div className={cn(styles, "Book-title")}>
+      <div className={styles.BookDetails}>
+        <div className={styles.BookTitle}>
           <h1>{info.title}</h1>
         </div>
         {info.first_publish_date && (
-          <div className={cn(styles, "Book__date")}>
+          <div className={styles.BookDate}>
             <p>
               <b>First published:</b> {info.first_publish_date}
             </p>
           </div>
         )}
         {info.created?.value && (
-          <div className={cn(styles, "Book__date")}>
+          <div className={styles.BookDate}>
             <p>
               <b>Added to Open Library: </b>
               {dayjs(info.created.value).format("D MMMM YYYY")}
@@ -50,7 +49,7 @@ export const BookInfo = ({ info }: Prop) => {
                 href={`https://openlibrary.org${info.key}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(styles, "Book__source-link")}
+                className={styles.BookSourceLink}
               >
                 Open Library
               </a>
@@ -58,7 +57,7 @@ export const BookInfo = ({ info }: Prop) => {
           </div>
         )}
         {info.last_modified?.value && (
-          <div className={cn(styles, "Book__date")}>
+          <div className={styles.BookDate}>
             <p>
               <b>Last modified: </b>
               {dayjs(info.last_modified.value).format("D MMM YYYY")}
@@ -66,18 +65,16 @@ export const BookInfo = ({ info }: Prop) => {
           </div>
         )}
         {info.subjects && info.subjects.length > 0 && (
-          <div className={cn(styles, "Book__group")}>
+          <div className={styles.BookGroup}>
             {info.subjects.map((subject) => (
-              <div key={subject} className={cn(styles, "Book__badge")}>
-                <span className={cn(styles, "Book__badge-text")}>
-                  {subject}
-                </span>
+              <div key={subject} className={styles.BookBadge}>
+                <span className={styles.BookBadgeText}>{subject}</span>
               </div>
             ))}
           </div>
         )}
         {info.description && (
-          <div className={cn(styles, "Book__description")}>
+          <div className={styles.BookDescription}>
             <p
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(getDescription(info.description)),

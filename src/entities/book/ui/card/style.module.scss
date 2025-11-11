@@ -1,5 +1,5 @@
 .Book {
-  &__card {
+  &Card {
     display: flex;
     gap: rem(20);
     align-items: center;
@@ -15,7 +15,7 @@
     }
   }
 
-  &__cover {
+  &Cover {
     width: 120px;
     height: 192px;
     object-fit: cover;
@@ -36,27 +36,27 @@
     }
   }
 
-  &__info {
+  &Info {
     display: flex;
     flex-direction: column;
     gap: rem(5);
   }
 
-  &__title {
+  &Title {
     overflow-wrap: break-word;
     word-break: break-word;
     max-width: rem(375);
   }
 
-  &__author {
+  &Author {
     color: var(--color-text-secondary);
   }
 
-  &__language {
+  &Language {
     color: var(--color-text-secondary);
   }
 
-  &__date {
+  &Date {
     color: var(--color-text-secondary);
   }
 }

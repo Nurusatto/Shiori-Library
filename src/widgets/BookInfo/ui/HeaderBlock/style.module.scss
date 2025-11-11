@@ -11,14 +11,14 @@
   border-radius: var(--border-radius-md);
   background-color: var(--color-background);
 
-  &__list {
+  &List {
     padding-block: rem(10);
     display: flex;
     justify-content: center;
     gap: rem(30);
   }
 
-  &__item {
+  &Item {
     @include hover {
       color: var(--color-primary-hover);
     }

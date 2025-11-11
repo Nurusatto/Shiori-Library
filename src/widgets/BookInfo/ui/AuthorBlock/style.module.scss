@@ -1,11 +1,11 @@
 .Author {
-  &__block {
+  &Block {
     display: flex;
     flex-direction: column;
     gap: rem(20);
   }
 
-  &__title {
+  &Title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,13 +16,13 @@
     }
   }
 
-  &__line {
+  &Line {
     background-color: var(--color-border);
     flex: 1;
     height: 1px;
   }
 
-  &__list {
+  &List {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: rem(20);

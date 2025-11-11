@@ -1,5 +1,5 @@
 .Book {
-  &__info-block {
+  &InfoBlock {
     display: flex;
     padding-block: rem(20);
     gap: rem(30);
@@ -9,14 +9,19 @@
     }
   }
 
-  &__wrap {
+  &Details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &Wrap {
     @include mobile {
       display: flex;
       justify-content: center;
     }
   }
 
-  &__cover {
+  &Cover {
     border-radius: var(--border-radius-md);
     border: var(--color-border) var(--border-width-thick)
       var(--border-style-default);
@@ -25,7 +30,7 @@
     box-shadow: var(--shadow-glow-md);
   }
 
-  &__date {
+  &Date {
     margin-block: rem(10);
     display: flex;
     align-items: center;
@@ -36,14 +41,14 @@
     }
   }
 
-  &__group {
+  &Group {
     display: flex;
     flex-wrap: wrap;
     gap: rem(5);
     max-width: rem(700);
   }
 
-  &__source-link {
+  &SourceLink {
     color: var(--color-primary);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -57,7 +62,7 @@
     }
   }
 
-  &__description {
+  &Description {
     margin-block: rem(10);
     color: var(--color-text-secondary);
     overflow-wrap: anywhere;
@@ -65,7 +70,7 @@
     white-space: normal;
   }
 
-  &__badge {
+  &Badge {
     border: var(--border-1);
     border-radius: var(--border-radius-sm);
     padding: rem(5);
@@ -74,6 +79,10 @@
 
     @include hover {
       transform: translateY(-3px);
+
+      .BookBadgeText {
+        color: var(--color-text-accent);
+      }
     }
   }
 }

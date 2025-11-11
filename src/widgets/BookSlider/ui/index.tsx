@@ -1,7 +1,6 @@
 "use client";
 
 import { BookInf } from "@/entities/book";
-import { cn } from "@/shared/lib/cn";
 import Image from "next/image";
 import styles from "./style.module.scss";
 
@@ -23,11 +22,11 @@ export const BookSlider = ({ bookObj }: Prop) => {
   if (!(bookObj?.covers?.length > 0)) return null;
   return (
     <>
-      <section className={cn(styles, "Slider__section")} id="covers">
-        <div className={cn(styles, "Slider__title")}>
-          <div className={cn(styles, "Slider__line")}></div>
+      <section className={styles.SliderSection} id="covers">
+        <div className={styles.Slider__title}>
+          <div className={styles.SliderLine}></div>
           <h1>Gallery of Covers</h1>
-          <div className={cn(styles, "Slider__line")}></div>
+          <div className={styles.Slider__line}></div>
         </div>
         <Swiper
           modules={[Navigation, Pagination]}
@@ -44,29 +43,29 @@ export const BookSlider = ({ bookObj }: Prop) => {
           }}
           pagination={{ clickable: true }}
           keyboard={{ enabled: true }}
-          className={cn(styles, "Slider__inner")}
+          className={styles.SliderInner}
         >
           {bookObj?.covers?.map((cover) => (
             <SwiperSlide key={cover}>
-              <div className={cn(styles, "Slider__slide")}>
+              <div className={styles.SliderSlide}>
                 <Image
                   width={128}
                   height={190}
                   quality={90}
                   alt="Book cover"
-                  className={cn(styles, "Slider__cover")}
+                  className={styles.SliderCover}
                   src={`https://covers.openlibrary.org/b/id/${cover}-L.jpg`}
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className={cn(styles, "Slider__arrows")}>
-          <button id="prevSlide" className={cn(styles, "Slider__arrow")}>
-            <ArrowBigLeft className={cn(styles, "Slider__arrow-icon")} />
+        <div className={styles.SliderArrows}>
+          <button id="prevSlide" className={styles.SliderArrow}>
+            <ArrowBigLeft className={styles.SliderArrowIcon} />
           </button>
-          <button id="nextSlide" className={cn(styles, "Slider__arrow")}>
-            <ArrowBigRight className={cn(styles, "Slider__arrow-icon")} />
+          <button id="nextSlide" className={styles.SliderArrow}>
+            <ArrowBigRight className={styles.SliderArrowIcon} />
           </button>
         </div>
       </section>

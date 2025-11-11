@@ -10,7 +10,6 @@ import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 
 import { useScrolled } from "@/shared/hooks/useScrolled";
-import { cn } from "@/shared/lib/cn";
 
 export const HeaderMobile = () => {
   const [open, setOpen] = useState(false);
@@ -50,16 +49,11 @@ export const HeaderMobile = () => {
           ))}
         </nav>
         {isBookPage && (
-          <nav
-            className={clsx(
-              cn(styles, "nav"),
-              open && cn(styles, "nav__hidden")
-            )}
-          >
-            <ul className={cn(styles, "nav__list")}>
+          <nav className={clsx(styles.nav, open && styles.navHidden)}>
+            <ul className={styles.navList}>
               {BookNavigation.map((link) => (
-                <li key={link.name} className={cn(styles, "nav__item")}>
-                  <a href={link.href} className={cn(styles, "nav__link")}>
+                <li key={link.name} className={styles.navItem}>
+                  <a href={link.href} className={styles.navLink}>
                     {link.name}
                   </a>
                 </li>
