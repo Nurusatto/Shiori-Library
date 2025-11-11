@@ -6,6 +6,7 @@ import "@/styles/index.scss";
 import { Header } from "@/widgets/Header";
 
 import { ClientProvider } from "@/init/ClientProvider";
+import { MotionProvider } from "@/init/MotionProvider";
 
 const InterFont = Inter({
   weight: ["400", "500"],
@@ -31,7 +32,7 @@ export default function RootLayout({
       <body className={`${InterFont.variable}`}>
         <ClientProvider>
           <Header />
-          {children}
+          <MotionProvider>{children}</MotionProvider>
         </ClientProvider>
       </body>
     </html>
