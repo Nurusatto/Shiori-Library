@@ -1,0 +1,13 @@
+.Search {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-block: rem(10);
+  }
+}

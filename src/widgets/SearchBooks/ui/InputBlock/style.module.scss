@@ -1,0 +1,35 @@
+.Input {
+  background-color: var(--color-background);
+  border: var(--border-1);
+  border-radius: var(--border-radius-md);
+  color: var(--color-primary);
+  padding: rem(10);
+
+  &Block {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: rem(20);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: rem(30);
+  }
+
+  &Action {
+    display: flex;
+    gap: rem(20);
+  }
+
+  &Message {
+    position: absolute;
+    top: rem(-30);
+  }
+
+  &Btn {
+    background-color: var(--color-background);
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    color: var(--color-primary);
+    padding: rem(10);
+  }
+}

@@ -15,10 +15,9 @@
   }
 
   &Wrap {
-    @include mobile {
-      display: flex;
-      justify-content: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &Cover {
@@ -76,13 +75,5 @@
     padding: rem(5);
     color: var(--color-primary);
     transition: var(--transition-duration);
-
-    @include hover {
-      transform: translateY(-3px);
-
-      .BookBadgeText {
-        color: var(--color-text-accent);
-      }
-    }
   }
 }

@@ -12,7 +12,7 @@ type Prop = {
 
 export const BookInfo = ({ info }: Prop) => {
   return (
-    <div className={styles.BookInfoBlock}>
+    <div className={styles.BookInfoBlock} id="info">
       <div className={styles.BookWrap}>
         {info?.covers?.length ? (
           <Image

@@ -6,6 +6,8 @@ import { LINKS } from "@/config/links/Header";
 import { LINKS as BookNavigation } from "@/config/links/bookPage";
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 
+import { MoveUp } from "lucide-react";
+
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 
@@ -16,6 +18,7 @@ export const HeaderMobile = () => {
   const url = usePathname() || "";
   const Scroll = useScrolled();
   const isBookPage = url.startsWith("/books");
+  const isHomeOrSearchPage = url.startsWith("/") || url.startsWith("/search");
 
   useEffect(() => {
     const html = document.documentElement;
@@ -60,6 +63,14 @@ export const HeaderMobile = () => {
               ))}
             </ul>
           </nav>
+        )}
+        {isHomeOrSearchPage && (
+          <a
+            href="#hello"
+            className={clsx(styles.navUp, open && styles.navHidden)}
+          >
+            <MoveUp />
+          </a>
         )}
         <button
           type="button"

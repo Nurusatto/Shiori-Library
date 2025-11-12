@@ -1,0 +1,38 @@
+.Author {
+  &List {
+    display: grid;
+    gap: rem(10);
+    padding-block: rem(20);
+    align-items: stretch;
+    grid-template-columns: repeat(2, 1fr);
+
+    &.row {
+      display: flex;
+      gap: rem(10);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &Item {
+    display: flex;
+    flex-direction: column;
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    padding: rem(10);
+    transition: var(--transition-duration);
+
+    @include hover {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.fallback {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  grid-column: 1/3;
+}

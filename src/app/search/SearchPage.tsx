@@ -1,7 +1,11 @@
+import { Hello } from "@/widgets/Hello";
+import { Search } from "@/widgets/SearchBooks/ui";
+
 export const SearchPage = () => {
   return (
-    <main>
-      <h1>hello</h1>
+    <main className="container">
+      <Hello />
+      <Search />
     </main>
   );
 };

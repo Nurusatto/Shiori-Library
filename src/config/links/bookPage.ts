@@ -4,6 +4,7 @@ interface props {
 }
 
 export const LINKS: props[] = [
+  { name: "Info", href: "#info" },
   { name: "Author", href: "#author" },
   { name: "Gallery", href: "#covers" },
   { name: "AI", href: "#AI" },

@@ -153,4 +153,10 @@
   &Hidden {
     display: none;
   }
+
+  &Up {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

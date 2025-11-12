@@ -1,5 +1,5 @@
-import { useQueries } from "@tanstack/react-query";
-import { getAuthor } from "./api";
+import { useQueries, useQuery } from "@tanstack/react-query";
+import { getAuthor, getAuthorByName } from "./api";
 
 export const useAuthors = (authorKeys: string[]) => {
   return useQueries({
@@ -8,5 +8,16 @@ export const useAuthors = (authorKeys: string[]) => {
       queryFn: () => getAuthor(key),
       enabled: !!key,
     })),
+  });
+};
+
+export const useAuthorByName = (name: string) => {
+  return useQuery({
+    queryKey: ["getAuthorByName", name],
+    queryFn: ({ queryKey }) => {
+      const value = queryKey[1];
+      return getAuthorByName(value);
+    },
+    enabled: !!name,
   });
 };

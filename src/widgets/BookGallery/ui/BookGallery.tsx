@@ -5,12 +5,9 @@ import { BookList, useBooks } from "@/entities/book";
 import styles from "./style.module.scss";
 import { RotateCcw } from "lucide-react";
 import clsx from "clsx";
-import { CatLoader } from "@/shared/ui/CatLoader";
 
 export const BookGallery = () => {
   const query = useBooks();
-
-  if (query.isLoading) return <CatLoader />;
 
   return (
     <>

@@ -8,7 +8,7 @@ export const Hello = () => {
   const { data, isLoading, refetch, isFetching } = useTip();
 
   return (
-    <section className={styles.HelloSection}>
+    <section className={styles.HelloSection} id="hello">
       <div className={styles.HelloBlock}>
         <h1>
           <span className={styles.HelloSakura}>🌸</span>Welcome to Shiori
