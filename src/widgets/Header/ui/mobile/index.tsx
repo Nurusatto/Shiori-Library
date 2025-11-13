@@ -18,8 +18,8 @@ export const HeaderMobile = () => {
   const url = usePathname() || "";
   const Scroll = useScrolled();
   const isBookPage = url.startsWith("/books");
-  const isHomeOrSearchPage = url.startsWith("/") || url.startsWith("/search");
-
+  const isHomeOrSearchPage = url === "/" || url.startsWith("/search");
+  console.log(isHomeOrSearchPage);
   useEffect(() => {
     const html = document.documentElement;
     if (open) {
