@@ -6,7 +6,7 @@ export type BookItem = {
   key: string; //id book
   title: string;
   author_name?: string[];
-  cover_i?: number; //id photo book
+  cover_i?: number[]; //id photo book
   language?: string[];
   lending_identifier_s?: string;
   first_publish_year?: number;
@@ -27,4 +27,10 @@ export type BookInf = {
   title: string;
   type: { key: string };
   first_publish_date?: string;
+};
+
+export type BookInfAlt = {
+  covers: number[];
+  title: string;
+  key: string;
 };

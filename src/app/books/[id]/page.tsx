@@ -1,10 +1,9 @@
-// "use client";
-
 import { notFound } from "next/navigation";
 
 //modules
 import { BookPage } from "./bookPage";
 import type { Metadata } from "next";
+import { HistoryProvider } from "@/init/historyProvider";
 
 export const metadata: Metadata = {
   title: "Book",
@@ -22,5 +21,10 @@ export default async function Book({
   const book = await res.json();
   console.log(book);
 
-  return <BookPage bookObj={book} />;
+  return (
+    <>
+      <BookPage bookObj={book} />
+      <HistoryProvider book={book} />
+    </>
+  );
 }

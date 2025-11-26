@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-import { Book, BookOpenText, House } from "lucide-react";
+import { Book, BrainCircuit, House } from "lucide-react";
 
 interface props {
   name: string;
@@ -11,7 +11,7 @@ interface props {
 export const LINKS: props[] = [
   { name: "Home", path: "/", icon: House },
   { name: "Search", path: "/search", icon: Book },
-  { name: "Filter", path: "/filter", icon: BookOpenText },
+  { name: "AI", path: "/AI", icon: BrainCircuit },
 ] as const;
 
 export type BookFilterType = (typeof LINKS)[number]["name"];

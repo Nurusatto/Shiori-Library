@@ -1,0 +1,16 @@
+.History {
+  &Section {
+    padding-block: rem(10);
+  }
+  &Title {
+    display: flex;
+    justify-content: center;
+    padding-block: rem(10);
+  }
+  &List {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    flex: 1;
+  }
+}

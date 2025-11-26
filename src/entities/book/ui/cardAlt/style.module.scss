@@ -1,0 +1,46 @@
+.Book {
+  &Card {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: rem(10);
+    padding: rem(10);
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    width: rem(400); /* фиксированная ширина карточки */
+    max-height: rem(320);
+  }
+
+  &Cover {
+    width: 120px;
+    height: 192px;
+    object-fit: cover;
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-glow-lg);
+    background-color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-warning);
+    font-size: 0.8rem;
+    font-weight: 500;
+    flex-shrink: 0;
+
+    &::before {
+      content: "No cover";
+    }
+  }
+
+  &Info {
+    flex: 1;
+    max-height: rem(300);
+    overflow-y: auto;
+    word-break: break-word;
+    white-space: normal;
+  }
+  &Title {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}

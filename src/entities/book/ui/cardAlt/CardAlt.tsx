@@ -1,18 +1,17 @@
 import Image from "next/image";
-import { BookItem } from "../../model/type";
-
 import styles from "./style.module.scss";
-import Link from "next/link";
 import { getCover } from "@/shared/utils/getCovers";
+import Link from "next/link";
+import { BookInfAlt } from "../../model/type";
 
-type Prop = {
-  book: BookItem;
+type CardAltProps = {
+  book: BookInfAlt; // или BookInfAlt, если у тебя отдельный тип
 };
 
-export const BookCard = ({ book }: Prop) => {
+export const CardAlt = ({ book }: CardAltProps) => {
   const bookId = book.key.replace("/works/", "");
-
   const coverID = getCover(book);
+  console.log(book);
   return (
     <li>
       <Link
@@ -25,7 +24,7 @@ export const BookCard = ({ book }: Prop) => {
             src={`https://covers.openlibrary.org/b/id/${coverID}-M.jpg`}
             alt="image"
             width={128}
-            height={192}
+            height={182}
             quality={90}
             className={styles.BookCover}
           />
@@ -34,17 +33,6 @@ export const BookCard = ({ book }: Prop) => {
         )}
         <div className={styles.BookInfo}>
           <h1 className={styles.BookTitle}>{book.title}</h1>
-          {book.author_name && (
-            <span className={styles.BookAuthor}>{book.author_name[0]}</span>
-          )}
-          {book.first_publish_year && (
-            <span className={styles.BookDate}>{book.first_publish_year}</span>
-          )}
-          {book.language && (
-            <span className={styles.BookLanguage}>
-              {book.language.join(", ")}
-            </span>
-          )}
         </div>
       </Link>
     </li>
