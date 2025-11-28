@@ -1,6 +1,5 @@
 "use client";
 
-import { CatLoader } from "@/shared/ui/CatLoader";
 import { useTip } from "./model/query";
 import styles from "./style.module.scss";
 
@@ -21,12 +20,13 @@ export const Hello = () => {
         <span>We only provide book information, not full editions</span>
       </div>
       <div className={styles.HelloRecom}>
-        {isLoading && <CatLoader />}
         {data && !isFetching && <h2>{data}</h2>}
         {isFetching && <h2>Loading...</h2>}
-        <button className={styles.HelloBtn} onClick={() => refetch()}>
-          Find Another Book
-        </button>
+        {!isLoading && (
+          <button className={styles.HelloBtn} onClick={() => refetch()}>
+            Find Another Book
+          </button>
+        )}
       </div>
     </section>
   );

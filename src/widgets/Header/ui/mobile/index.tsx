@@ -19,7 +19,7 @@ export const HeaderMobile = () => {
   const Scroll = useScrolled();
   const isBookPage = url.startsWith("/books");
   const isHomeOrSearchPage = url === "/" || url.startsWith("/search");
-  console.log(isHomeOrSearchPage);
+
   useEffect(() => {
     const html = document.documentElement;
     if (open) {

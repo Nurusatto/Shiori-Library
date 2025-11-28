@@ -12,5 +12,11 @@
     overflow-x: auto;
     gap: 16px;
     flex: 1;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
   }
 }
