@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 //modules
 import { BookPage } from "./bookPage";
 import type { Metadata } from "next";
-import { HistoryProvider } from "@/init/historyProvider";
+import { HistoryProvider } from "@/providers/historyProvider";
 
 export const metadata: Metadata = {
   title: "Book",

@@ -1,0 +1,13 @@
+.Chat {
+  &Wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &Messages {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: rem(80);
+  }
+}

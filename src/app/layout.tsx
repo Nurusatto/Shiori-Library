@@ -5,8 +5,8 @@ import "@/styles/index.scss";
 
 import { Header } from "@/widgets/Header";
 
-import { ClientProvider } from "@/init/ClientProvider";
-import { MotionProvider } from "@/init/MotionProvider";
+import { ClientProvider } from "@/providers/ClientProvider";
+import { MotionProvider } from "@/providers/MotionProvider";
 
 const InterFont = Inter({
   weight: ["400", "500"],

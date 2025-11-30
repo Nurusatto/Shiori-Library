@@ -1,0 +1,90 @@
+.Wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: fixed;
+  background-color: var(--color-background);
+  left: 50%;
+  transform: translateX(-50%);
+  padding-block: rem(5);
+  bottom: rem(0);
+  width: 100%;
+  max-width: calc(100%);
+  justify-content: center;
+
+  z-index: 10;
+
+  @include tablet {
+    justify-content: center;
+    max-width: calc(100%);
+    left: 50%;
+  }
+
+  @include mobile {
+    gap: 5;
+  }
+}
+
+.Trash {
+  border-radius: 50%;
+  border: var(--border-1);
+  padding: rem(5);
+  bottom: 0;
+  background-color: var(--color-background);
+  @include square(rem(35));
+
+  @include mobile {
+    @include square(rem(30));
+    position: absolute;
+    left: clamp(5px, 2vw, 30px);
+    bottom: rem(60);
+  }
+}
+
+.Input {
+  flex: 0 0 80%;
+  padding: 10px 10px 10px 15px;
+  font-size: 16px;
+  border: var(--border-1);
+  background-color: var(--color-bg-alt);
+  border-radius: 50px;
+  box-sizing: border-box;
+  color: var(--color-accent);
+
+  @include tablet {
+    flex: 0 0 70%;
+  }
+
+  @include mobile {
+    flex: 0 0 85%;
+  }
+}
+
+.Icon {
+  color: var(--color-primary);
+}
+
+.Button {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 1%;
+  padding: 10px;
+  font-size: 16px;
+  border: var(--border-1);
+  border-radius: var(--border-radius-md);
+  box-sizing: border-box;
+  background-color: var(--color-background);
+
+  @include hover {
+    transform: translateY(-3px);
+    background-color: var(--color-primary-hover);
+
+    .Icon {
+      color: var(--color-overlay);
+    }
+  }
+
+  @include tablet {
+    flex: 0 0 5%;
+  }
+}

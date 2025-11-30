@@ -1,0 +1,40 @@
+/* LoadingDots.css */
+.loadingDots {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0.5rem;
+  height: 2rem; /* высота контейнера */
+}
+
+.loadingDots span {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--color-primary-hover); /* можно менять на любой цвет */
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 0.6s infinite;
+}
+
+/* Делаем задержку анимации для каждой точки */
+.loadingDots span:nth-child(1) {
+  animation-delay: 0s;
+}
+.loadingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loadingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Анимация прыжка */
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-0.8rem);
+  }
+}

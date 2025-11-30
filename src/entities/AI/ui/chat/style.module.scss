@@ -1,0 +1,30 @@
+.Message {
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    padding-top: rem(10);
+
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  &User {
+    padding-block: rem(10);
+    padding-inline: rem(10);
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-bg-alt);
+    display: inline-flex;
+    align-items: flex-start;
+    max-width: rem(500);
+    margin-left: auto;
+  }
+
+  &AI {
+    max-width: rem(900);
+    width: 100%;
+  }
+}
