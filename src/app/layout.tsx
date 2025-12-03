@@ -13,6 +13,9 @@ const InterFont = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.svg",
+  },
   title: {
     default: "Shiori Library",
     template: "%s | Shiori Library",
