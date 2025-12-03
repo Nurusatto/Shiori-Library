@@ -1,5 +1,6 @@
 import { SearchPage } from "./SearchPage";
 import type { Metadata } from "next";
+import { MotionProvider } from "@/providers/MotionProvider";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function Search() {
-  return <SearchPage />;
+  return (
+    <MotionProvider>
+      <SearchPage />
+    </MotionProvider>
+  );
 }

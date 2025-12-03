@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HomePage } from "./Home";
+import { MotionProvider } from "@/providers/MotionProvider";
 
 export const metadata: Metadata = {
   title: "Home | Shiori library",
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomePage />;
+  return (
+    <MotionProvider>
+      <HomePage />
+    </MotionProvider>
+  );
 }

@@ -1,14 +1,12 @@
-.Message {
-  &List {
+.Book {
+  &AiInner {
     display: flex;
     flex-direction: column;
     gap: rem(20);
-    padding-top: rem(10);
-
-    white-space: pre-wrap;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    max-width: 100%;
+    padding-block: rem(20);
+    border: var(--border-1);
+    border-radius: var(--border-radius-md);
+    padding-inline: rem(10);
   }
 
   &User {
@@ -23,8 +21,12 @@
     margin-left: auto;
   }
 
-  &AI {
-    max-width: rem(900);
-    width: 100%;
+  &Link {
+    color: var(--color-primary-hover);
+
+    @include hover {
+      transform: scale(1.1);
+      color: var(--color-accent-glow);
+    }
   }
 }

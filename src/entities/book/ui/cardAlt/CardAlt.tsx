@@ -11,7 +11,6 @@ type CardAltProps = {
 export const CardAlt = ({ book }: CardAltProps) => {
   const bookId = book.key.replace("/works/", "");
   const coverID = getCover(book);
-  console.log(book);
   return (
     <li>
       <Link

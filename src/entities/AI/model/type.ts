@@ -14,3 +14,8 @@ export type handler = {
   input: string;
   setInput: (val: string) => void;
 };
+
+export type bookPageAi = {
+  title: string;
+  key: string;
+};

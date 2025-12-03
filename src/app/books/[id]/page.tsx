@@ -19,7 +19,6 @@ export default async function Book({
   const res = await fetch(`https://openlibrary.org/works/${id}.json`);
   if (!res.ok) return notFound();
   const book = await res.json();
-  console.log(book);
 
   return (
     <>

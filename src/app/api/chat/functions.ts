@@ -16,7 +16,7 @@ export async function detectTopic(text: string) {
   try {
     const prompt = `
 Классифицируй текст:
-BOOKS — если речь о книгах
+BOOKS — если речь о книгах или авторах
 OTHER — иначе
 
 Текст: '${text}'
@@ -47,6 +47,6 @@ export async function answerBooksQuestion(text: string) {
     return res.response.text();
   } catch (err) {
     console.error("AnswerBooks error:", err);
-    return "Произошла ошибка при генерации ответа.";
+    return "An error occurred while generating the response.";
   }
 }

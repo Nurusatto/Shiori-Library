@@ -4,9 +4,7 @@ import { Inter } from "next/font/google";
 import "@/styles/index.scss";
 
 import { Header } from "@/widgets/Header";
-
 import { ClientProvider } from "@/providers/ClientProvider";
-import { MotionProvider } from "@/providers/MotionProvider";
 
 const InterFont = Inter({
   weight: ["400", "500"],
@@ -32,7 +30,7 @@ export default function RootLayout({
       <body className={`${InterFont.variable}`}>
         <ClientProvider>
           <Header />
-          <MotionProvider>{children}</MotionProvider>
+          {children}
         </ClientProvider>
       </body>
     </html>

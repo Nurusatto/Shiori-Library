@@ -11,11 +11,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ reply });
     } else {
       return NextResponse.json({
-        reply: "Дорогой гость, я веду беседу только о книгах 📚",
+        reply: "Dear guest, I only talk about books here 📚",
       });
     }
   } catch (err) {
     console.error("API /api/chat error:", err);
-    return NextResponse.json({ reply: "Произошла ошибка на сервере." });
+    return NextResponse.json({ reply: "Error please try late" });
   }
 }
