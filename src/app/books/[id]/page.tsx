@@ -11,17 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default async function Book(props: { params: Promise<{ id: string }> }) {
-  const { id } = await props.params;
+  const { id } = await props.params; // здесь await обязателен
 
-  let book;
-  try {
-    const res = await fetch(`https://openlibrary.org/works/${id}.json`);
-    if (!res.ok) return notFound();
-    book = await res.json();
-  } catch (e) {
-    console.error(e);
-    return notFound();
-  }
+  const res = await fetch(`https://openlibrary.org/works/${id}.json`, {
+    next: { revalidate: 3600 }, // кэшируем
+  });
+
+  if (!res.ok) return notFound();
+
+  const book = await res.json();
 
   return (
     <HistoryProvider book={book}>
