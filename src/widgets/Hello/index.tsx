@@ -2,12 +2,16 @@
 
 import { useTip } from "./model/query";
 import styles from "./style.module.scss";
+import { SakuraScene } from "@/shared/ui/SakuraScene";
 
 export const Hello = () => {
   const { data, isLoading, refetch, isFetching } = useTip();
 
   return (
     <section className={styles.HelloSection} id="hello">
+      <div className={styles.HelloSakura3D}>
+        <SakuraScene />
+      </div>
       <div className={styles.HelloBlock}>
         <h1>
           <span className={styles.HelloSakura}>🌸</span>Welcome to Shiori
