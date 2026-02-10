@@ -21,6 +21,10 @@ export const metadata: Metadata = {
     template: "%s | Shiori Library",
   },
   description: "Your personal reading library",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({
