@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { ai_token } from "@/config/api";
+import { ai_token } from "@/app/_config/api";
 
 if (!ai_token) throw new Error("GEMINI API token не найден");
 
