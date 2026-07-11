@@ -1,6 +1,6 @@
 "use client";
 
-import { useBookHistory } from "@/store/useBookHistory";
+import { useBookHistory } from "@/app/_store/useBookHistory";
 import { CardAlt } from "@/entities/book";
 import styles from "./style.module.scss";
 

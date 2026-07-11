@@ -1,6 +1,6 @@
 "use client";
 
-import { LINKS } from "@/config/links/bookPage";
+import { LINKS } from "@/app/_config/links/bookPage";
 
 import styles from "./style.module.scss";
 import clsx from "clsx";

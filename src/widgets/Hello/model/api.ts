@@ -1,4 +1,4 @@
-import { BOOK_GENRES, type BookGenreType } from "@/config/links/genres";
+import { BOOK_GENRES, type BookGenreType } from "@/app/_config/links/genres";
 
 function getRandomGenre(): BookGenreType {
   const genres = Object.values(BOOK_GENRES);
@@ -12,7 +12,7 @@ export async function fetchBookRecom() {
     const res = await fetch(
       `https://openlibrary.org/subjects/${subject
         .toLowerCase()
-        .replace(/\s/g, "_")}.json?limit=50`
+        .replace(/\s/g, "_")}.json?limit=50`,
     );
     const data = await res.json();
 

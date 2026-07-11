@@ -1,9 +1,8 @@
 "use client";
+import { useBookHistory } from "@/app/_store/useHistoryAI";
+import { ArrowUp, Eraser } from "lucide-react";
 import { InputAi } from "../../model/type";
 import styles from "./style.module.scss";
-import { ArrowUp } from "lucide-react";
-import { Eraser } from "lucide-react";
-import { useBookHistory } from "@/store/useHistoryAI";
 
 export const InputAI = ({ value, onChange, onSubmit }: InputAi) => {
   const clear = useBookHistory((clear) => clear.clearMessages);

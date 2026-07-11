@@ -1,7 +1,7 @@
 "use client";
 
+import { useBookHistory } from "@/app/_store/useBookHistory";
 import { BookInf } from "@/entities/book";
-import { useBookHistory } from "@/store/useBookHistory";
 import { ReactNode } from "react";
 
 export const HistoryProvider = ({

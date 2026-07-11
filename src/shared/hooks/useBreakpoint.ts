@@ -1,6 +1,6 @@
 // "use client";
 
-import { BREAKPOINTS } from "@/config/breakpoints";
+import { BREAKPOINTS } from "@/app/_config/breakpoints";
 import { useState, useEffect } from "react";
 
 type Breakpoint = "mobile" | "tablet" | "desktop" | "laptop" | null;

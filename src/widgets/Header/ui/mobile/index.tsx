@@ -2,8 +2,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
 
-import { LINKS } from "@/config/links/Header";
-import { LINKS as BookNavigation } from "@/config/links/bookPage";
+import { LINKS } from "@/app/_config/links/Header";
+import { LINKS as BookNavigation } from "@/app/_config/links/bookPage";
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 
 import { MoveUp } from "lucide-react";
@@ -43,7 +43,7 @@ export const HeaderMobile = () => {
               key={link.name}
               className={clsx(
                 styles.HeaderLinks,
-                isActiveLink(link.path, url) && styles.isActive
+                isActiveLink(link.path, url) && styles.isActive,
               )}
             >
               {<link.icon />}

@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 
 //modules
-import { BookPage } from "./bookPage";
+import { HistoryProvider } from "@/app/_providers/historyProvider";
 import type { Metadata } from "next";
-import { HistoryProvider } from "@/providers/historyProvider";
+import { BookPage } from "./bookPage";
 
 export const metadata: Metadata = {
   title: "Book",

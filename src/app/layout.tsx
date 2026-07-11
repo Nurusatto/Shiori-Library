@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
-import "@/styles/index.scss";
+import "@/app/_styles/index.scss";
 
+import { ClientProvider } from "@/app/_providers/ClientProvider";
 import { Header } from "@/widgets/Header";
-import { ClientProvider } from "@/providers/ClientProvider";
 
 const InterFont = Inter({
   weight: ["400", "500"],
@@ -21,10 +21,11 @@ export const metadata: Metadata = {
     template: "%s | Shiori Library",
   },
   description: "Your personal reading library",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

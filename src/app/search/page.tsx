@@ -1,6 +1,6 @@
-import { SearchPage } from "./SearchPage";
+import { MotionProvider } from "@/app/_providers/MotionProvider";
 import type { Metadata } from "next";
-import { MotionProvider } from "@/providers/MotionProvider";
+import { SearchPage } from "./SearchPage";
 
 export const metadata: Metadata = {
   title: "Search",

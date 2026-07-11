@@ -1,4 +1,4 @@
-import { ai_token } from "@/config/api";
+import { ai_token } from "@/app/_config/api";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { bookPageAi } from "@/entities/AI";
 

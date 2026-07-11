@@ -1,13 +1,11 @@
 "use client";
 
-import styles from "./style.module.scss";
-import { Chat, Message } from "@/entities/AI";
-import { InputAI } from "@/entities/AI";
-import { useBookHistory } from "@/store/useHistoryAI";
-import { useEffect, useRef, useState } from "react";
-import { useQueryAI } from "@/entities/AI";
-import { v4 as uuidv4 } from "uuid";
+import { useBookHistory } from "@/app/_store/useHistoryAI";
+import { Chat, InputAI, Message, useQueryAI } from "@/entities/AI";
 import { LoadingDots } from "@/shared/ui/DotLoader";
+import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import styles from "./style.module.scss";
 
 export const ChatAI = () => {
   const history = useBookHistory((s) => s.messages);
