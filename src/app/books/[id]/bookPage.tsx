@@ -1,6 +1,6 @@
 import { BookInf } from "@/entities/book";
 import { Bookinfo } from "@/widgets/BookInfo";
-import { HeaderBlock } from "@/widgets/BookInfo/ui/HeaderBlock";
+import { HeaderBlock } from "@/widgets/BookInfo";
 import { BookSlider } from "@/widgets/BookSlider";
 import { BookAI } from "@/widgets/BookAI";
 import { Footer } from "@/widgets/Footer";

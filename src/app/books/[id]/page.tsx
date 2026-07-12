@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 //modules
-import { HistoryProvider } from "@/app/_providers/historyProvider";
+import { BookHistoryTracker } from "@/features/book-history";
 import type { Metadata } from "next";
 import { BookPage } from "./bookPage";
 
@@ -22,8 +22,9 @@ export default async function Book(props: { params: Promise<{ id: string }> }) {
   const book = await res.json();
 
   return (
-    <HistoryProvider book={book}>
+    <>
+      <BookHistoryTracker book={book} />
       <BookPage bookObj={book} />
-    </HistoryProvider>
+    </>
   );
 }

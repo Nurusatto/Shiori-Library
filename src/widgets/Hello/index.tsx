@@ -1,11 +1,11 @@
 "use client";
 
-import { useTip } from "./model/query";
+import { useBookRecommendation } from "@/features/book-recommendation";
 import styles from "./style.module.scss";
 import { SakuraScene } from "@/shared/ui/SakuraScene";
 
 export const Hello = () => {
-  const { data, isLoading, refetch, isFetching } = useTip();
+  const { data, isLoading, refetch, isFetching } = useBookRecommendation();
 
   return (
     <section className={styles.HelloSection} id="hello">

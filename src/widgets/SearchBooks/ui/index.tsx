@@ -5,7 +5,7 @@ import { InputBlock } from "./InputBlock";
 import styles from "./style.module.scss";
 import { BookList, useBooksByName } from "@/entities/book";
 import { useAuthorByName } from "@/entities/Author";
-import { AuthorList } from "@/entities/Author/ui/list";
+import { AuthorList } from "@/entities/Author";
 
 export const Search = () => {
   const [value, setValue] = useState<string>("");

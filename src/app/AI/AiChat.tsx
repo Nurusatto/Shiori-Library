@@ -1,9 +1,9 @@
-import { ChatAI } from "@/widgets/AiChat";
+import { AiChat as AiChatFeature } from "@/features/ai-chat";
 
 export const AiChat = () => {
   return (
     <div className="container">
-      <ChatAI />
+      <AiChatFeature />
     </div>
   );
 };

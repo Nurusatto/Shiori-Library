@@ -28,6 +28,7 @@ export const BookCard = ({ book }: Prop) => {
             height={192}
             quality={90}
             className={styles.BookCover}
+            unoptimized
           />
         ) : (
           <div className={styles.BookCover}></div>

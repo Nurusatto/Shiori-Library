@@ -2,8 +2,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
 
-import { LINKS } from "@/app/_config/links/Header";
-import { LINKS as BookNavigation } from "@/app/_config/links/bookPage";
+import { BOOK_PAGE_LINKS, HEADER_LINKS } from "@/shared/config/navigation";
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 
 import { MoveUp } from "lucide-react";
@@ -28,7 +27,6 @@ export const HeaderMobile = () => {
       html.classList.remove("isLock");
     }
 
-    // чистим при unmount
     return () => html.classList.remove("isLock");
   }, [open]);
 
@@ -36,7 +34,7 @@ export const HeaderMobile = () => {
     <header className={clsx(styles.Header, Scroll && styles.Srolled)}>
       <div className={`container ${styles.HeaderInner}`}>
         <nav className={clsx(styles.HeaderNav, open && styles.isActive)}>
-          {LINKS.map((link) => (
+          {HEADER_LINKS.map((link) => (
             <Link
               onClick={() => setOpen(!open)}
               href={link.path}
@@ -54,7 +52,7 @@ export const HeaderMobile = () => {
         {isBookPage && (
           <nav className={clsx(styles.nav, open && styles.navHidden)}>
             <ul className={styles.navList}>
-              {BookNavigation.map((link) => (
+              {BOOK_PAGE_LINKS.map((link) => (
                 <li key={link.name} className={styles.navItem}>
                   <a href={link.href} className={styles.navLink}>
                     {link.name}

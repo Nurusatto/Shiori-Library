@@ -1,9 +1,9 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { ai_token } from "@/app/_config/api";
+import { aiToken } from "@/shared/config/api";
 
-if (!ai_token) throw new Error("GEMINI API token не найден");
+if (!aiToken) throw new Error("GEMINI API token не найден");
 
-const genAI = new GoogleGenerativeAI(ai_token);
+const genAI = new GoogleGenerativeAI(aiToken);
 
 const mainModel = genAI.getGenerativeModel({
   model: "models/gemini-2.5-flash",

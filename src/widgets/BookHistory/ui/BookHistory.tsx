@@ -1,11 +1,11 @@
 "use client";
 
-import { useBookHistory } from "@/app/_store/useBookHistory";
+import { useBookHistory } from "@/features/book-history";
 import { CardAlt } from "@/entities/book";
 import styles from "./style.module.scss";
 
 export const BookHistory = () => {
-  const history = useBookHistory.getState().history;
+  const history = useBookHistory((state) => state.history);
 
   const noNull = history.length === 0;
 

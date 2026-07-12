@@ -1,19 +1,21 @@
-import { ai_token } from "@/app/_config/api";
+import { aiToken } from "@/shared/config/api";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import type { bookPageAi } from "@/entities/AI";
+import type { BookAiRequest } from "@/features/ai-chat";
+
+const ai_token = aiToken;
 
 export class BookAI {
   private model;
 
   constructor() {
     if (!ai_token) throw new Error("GEMINI API token не найден");
-    const genAI = new GoogleGenerativeAI(ai_token);
+    const genAI = new GoogleGenerativeAI(aiToken!);
 
     this.model = genAI.getGenerativeModel({
       model: "models/gemini-2.5-flash",
     });
   }
-  async getInfo({ title, key }: bookPageAi) {
+  async getInfo({ title, key }: BookAiRequest) {
     try {
       const prompt = `
 You are a helpful librarian assistant named Shori.

@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import clsx from "clsx";
 
 import Link from "next/link";
-import { LINKS } from "@/app/_config/links/Header";
+import { HEADER_LINKS } from "@/shared/config/navigation";
 import { usePathname } from "next/navigation";
 
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
@@ -14,7 +14,7 @@ export const HeaderDesktop = () => {
     <header className={styles.Header}>
       <div className={`container ${styles.HeaderInner}`}>
         <nav className={styles.HeaderNav}>
-          {LINKS.map((link) => (
+          {HEADER_LINKS.map((link) => (
             <Link
               href={link.path}
               key={link.name}

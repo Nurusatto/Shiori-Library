@@ -1,7 +1,7 @@
 "use client";
 
 import { BookInf } from "@/entities/book";
-import { useBookAi } from "@/entities/AI";
+import { useBookSummary } from "@/features/ai-chat";
 import { useEffect } from "react";
 import styles from "./style.module.scss";
 import { LoadingDots } from "@/shared/ui/DotLoader";
@@ -12,7 +12,7 @@ type Prop = {
 };
 
 export const BookAI = ({ bookObj }: Prop) => {
-  const { data, isPending, mutate } = useBookAi();
+  const { data, isPending, mutate } = useBookSummary();
   useEffect(() => {
     mutate({ key: bookObj.key, title: bookObj.title });
   }, [bookObj.title, bookObj.key, mutate]);

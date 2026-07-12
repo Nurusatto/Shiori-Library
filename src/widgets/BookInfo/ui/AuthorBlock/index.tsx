@@ -1,7 +1,5 @@
 "use client";
-import { useAuthors } from "@/entities/Author/model/query";
-import { AuthorObj } from "@/entities/Author/index";
-import { AuthorCard } from "@/entities/Author/ui/card";
+import { AuthorCard, AuthorObj, useAuthors } from "@/entities/Author";
 
 import styles from "./style.module.scss";
 import { CatLoader } from "@/shared/ui/CatLoader";
