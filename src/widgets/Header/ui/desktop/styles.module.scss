@@ -1,14 +1,7 @@
 .Header {
-  // position: sticky;
-  // top: 0;
-  // background-color: var(--color-background);
-  // z-index: var(--z-index-overlay);
-  border-bottom: var(--border-width-medium) var(--border-style-default)
-    var(--color-border);
   &Inner {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     padding-block: rem(30);
   }
 
@@ -22,7 +15,6 @@
     display: flex;
     align-items: center;
     gap: rem(8);
-
     padding: rem(10) rem(16);
     border-radius: rem(10);
     transition: all 0.3s ease;
