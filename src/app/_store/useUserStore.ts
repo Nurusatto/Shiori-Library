@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { User as SupabaseUser } from "@supabase/supabase-js";
 
 export type Profile = {
+  avatar: string | null;
   username: string;
   firstName: string;
   lastName: string;
@@ -20,7 +21,13 @@ type AuthState = {
 
 export const useUserStore = create<AuthState>((set) => ({
   auth: null,
-  profile: null,
+  profile: {
+    avatar:
+      "https://i.pinimg.com/736x/d3/60/21/d36021083aec5cae2ff1c85bb660f5f4.jpg",
+    username: "",
+    firstName: "",
+    lastName: "",
+  },
   status: "loading",
 
   setAuth: (auth) =>

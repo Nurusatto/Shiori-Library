@@ -1,0 +1,16 @@
+.avatarContainer {
+  width: 40px; // w-10 (10 * 4px)
+  height: 40px; // h-10
+  border-radius: 9999px; // rounded-full
+  border: var(--border-1);
+  overflow: hidden;
+  display: flex; // flex
+  align-items: center; // items-center
+  justify-content: center; // justify-center
+}
+
+.avatarText {
+  color: #ffffff; // text-white
+  font-size: 1.125rem; // text-lg (18px)
+  font-weight: 600; // font-semibold
+}

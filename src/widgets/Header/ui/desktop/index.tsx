@@ -1,12 +1,13 @@
-import styles from "./styles.module.scss";
 import clsx from "clsx";
+import styles from "./styles.module.scss";
 
-import Link from "next/link";
 import { HEADER_LINKS } from "@/shared/config/navigation";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 import { ShioriLogo } from "@/shared/image/react-svg/logo";
+
+import { AvatarDropMenu } from "@/features/auth/ui/avatarDropMenu";
 
 type prop = {
   className?: string;
@@ -35,9 +36,7 @@ export const HeaderDesktop = ({ className }: prop) => {
           </Link>
         ))}
       </nav>
-      <div className="">
-        <span>User</span>
-      </div>
+      <AvatarDropMenu />
     </div>
   );
 };

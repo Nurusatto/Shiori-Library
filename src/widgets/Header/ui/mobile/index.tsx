@@ -10,6 +10,8 @@ import { MoveUp } from "lucide-react";
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 
+import { Avatar } from "@/entities/user/ui/avatar";
+
 type prop = {
   className: string;
 };
@@ -35,6 +37,8 @@ export const HeaderMobile = ({ className }: prop) => {
   return (
     <div className={`container ${styles.HeaderInner} ${className}`}>
       <nav className={clsx(styles.HeaderNav, open && styles.isActive)}>
+        <Avatar shape="circle" avatar={null} />
+
         {HEADER_LINKS.map((link) => (
           <Link
             onClick={() => setOpen(!open)}
