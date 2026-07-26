@@ -1,16 +1,16 @@
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { BOOK_PAGE_LINKS, HEADER_LINKS } from "@/shared/config/navigation";
 import { isActiveLink } from "@/shared/hooks/isActiveLink";
 
 import { MoveUp } from "lucide-react";
 
-import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
 
-import { Avatar } from "@/entities/user/ui/avatar";
+import { AvatarDropMenu } from "@/features/user/ui/avatarDropMenu";
 
 type prop = {
   className: string;
@@ -37,7 +37,7 @@ export const HeaderMobile = ({ className }: prop) => {
   return (
     <div className={`container ${styles.HeaderInner} ${className}`}>
       <nav className={clsx(styles.HeaderNav, open && styles.isActive)}>
-        <Avatar shape="circle" avatar={null} />
+        <AvatarDropMenu />
 
         {HEADER_LINKS.map((link) => (
           <Link

@@ -1,16 +1,53 @@
-.avatarContainer {
-  width: 40px; // w-10 (10 * 4px)
-  height: 40px; // h-10
-  border-radius: 9999px; // rounded-full
-  border: var(--border-1);
+.avatar {
+  position: relative;
   overflow: hidden;
-  display: flex; // flex
-  align-items: center; // items-center
-  justify-content: center; // justify-center
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: var(--border-1);
+  background: var(--color-background-secondary);
 }
 
-.avatarText {
-  color: #ffffff; // text-white
-  font-size: 1.125rem; // text-lg (18px)
-  font-weight: 600; // font-semibold
+.image {
+  object-fit: cover;
+}
+
+.text {
+  color: #fff;
+  font-weight: 600;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.square {
+  border-radius: 8px;
+}
+
+.xs {
+  width: 24px;
+  height: 24px;
+}
+
+.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+}
+
+.lg {
+  width: 64px;
+  height: 64px;
+}
+
+.xl {
+  width: 96px;
+  height: 96px;
 }

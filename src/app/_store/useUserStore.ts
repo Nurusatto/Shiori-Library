@@ -2,10 +2,11 @@ import { create } from "zustand";
 import { User as SupabaseUser } from "@supabase/supabase-js";
 
 export type Profile = {
-  avatar: string | null;
+  avatar: string;
   username: string;
-  firstName: string;
-  lastName: string;
+  displayName: string; // Оно же first_name
+  bio: string | null;
+  phone: string | null;
 };
 
 type AuthStatus = "loading" | "authenticated" | "unauthenticated";
@@ -17,17 +18,17 @@ type AuthState = {
 
   setAuth: (user: SupabaseUser | null) => void;
   setProfile: (profile: Profile | null) => void;
+
+  logOut: () => void;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const DEFAULT_AVATAR =
+  "https://i.pinimg.com/736x/d3/60/21/d36021083aec5cae2ff1c85bb660f5f4.jpg";
 
 export const useUserStore = create<AuthState>((set) => ({
   auth: null,
-  profile: {
-    avatar:
-      "https://i.pinimg.com/736x/d3/60/21/d36021083aec5cae2ff1c85bb660f5f4.jpg",
-    username: "",
-    firstName: "",
-    lastName: "",
-  },
+  profile: null, // Изначально профиля нет, пока идет загрузка
   status: "loading",
 
   setAuth: (auth) =>
@@ -40,4 +41,5 @@ export const useUserStore = create<AuthState>((set) => ({
     set({
       profile,
     }),
+  logOut: () => set({ auth: null, profile: null, status: "unauthenticated" }),
 }));

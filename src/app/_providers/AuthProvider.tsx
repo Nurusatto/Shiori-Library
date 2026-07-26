@@ -2,7 +2,7 @@
 
 import { createClient } from "@/shared/lib/supabase/client";
 import { useEffect } from "react";
-import { useUserStore } from "@/app/_store/useUserStore";
+import { useUserStore, Profile } from "@/app/_store/useUserStore";
 
 declare global {
   interface Window {
@@ -18,13 +18,36 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const supabase = createClient();
   const setAuth = useUserStore((state) => state.setAuth);
   const setProfile = useUserStore((state) => state.setProfile);
+  const DEFAULT_AVATAR = "";
 
   useEffect(() => {
+    // Вспомогательная функция, чтобы не дублировать код
+    async function fetchProfile(userId: string): Promise<Profile | null> {
+      const { data, error } = await supabase
+        .from("profiles")
+        // Запрашиваем ВСЕ поля. Если какого-то поля (например, avatar_url) еще нет в БД, временно убери его из селекта
+        .select("username, display_name, bio, phone, avatar_url")
+        .eq("id", userId)
+        .maybeSingle();
+
+      if (error || !data) return null;
+
+      return {
+        username: data.username,
+        displayName: data.display_name || "",
+        bio: data.bio || null,
+        phone: data.phone || null,
+        avatar: data.avatar_url || DEFAULT_AVATAR, // fallback на дефолтную картинку
+      };
+    }
+
     async function init() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      console.log("SESSION:", session);
+
+      console.log("SESSION INITIALIZED:", session);
+
       if (!session) {
         setAuth(null);
         setProfile(null);
@@ -32,21 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
 
       setAuth(session.user);
-
-      const { data } = await supabase
-        .from("profiles")
-        .select("username, first_name, last_name")
-        .eq("id", session.user.id)
-        .maybeSingle();
-
-      const profile = data
-        ? {
-            username: data.username,
-            firstName: data.first_name,
-            lastName: data.last_name,
-          }
-        : null;
-
+      const profile = await fetchProfile(session.user.id);
       setProfile(profile);
     }
 
@@ -55,6 +64,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (_event, session) => {
+      console.log("AUTH STATE CHANGED:", _event, session);
+
       if (!session) {
         setAuth(null);
         setProfile(null);
@@ -62,27 +73,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
 
       setAuth(session.user);
-
-      const { data } = await supabase
-        .from("profiles")
-        .select("username, first_name, last_name")
-        .eq("id", session.user.id)
-        .maybeSingle();
-
-      const profile = data
-        ? {
-            username: data.username,
-            firstName: data.first_name,
-            lastName: data.last_name,
-          }
-        : null;
-
+      const profile = await fetchProfile(session.user.id);
       setProfile(profile);
     });
 
     return () => subscription.unsubscribe();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setAuth, setProfile, supabase]);
 
   return children;
 };
