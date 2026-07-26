@@ -13,9 +13,12 @@ import { AvatarSize } from "@/entities/user/model/type";
 
 type props = {
   size?: AvatarSize;
+  setOpen?: (open: boolean) => void;
+  open?: boolean;
+  priority?: boolean;
 };
 
-export const AvatarDropMenu = ({ size }: props) => {
+export const AvatarDropMenu = ({ size, setOpen, open, priority }: props) => {
   const router = useRouter();
   const { profile, status, logOut } = useUserStore();
   const currentAvatar = profile?.avatar ?? null;
@@ -61,6 +64,7 @@ export const AvatarDropMenu = ({ size }: props) => {
     const action = actionsMap[id];
     if (action) {
       action();
+      if (setOpen) setOpen(!open);
       setActive(false);
     }
   };
@@ -89,6 +93,7 @@ export const AvatarDropMenu = ({ size }: props) => {
               className={styles.loginBtn}
               onClick={() => {
                 setActive(false);
+                if (setOpen) setOpen(!open);
                 router.push("/login");
               }}
             >
@@ -128,7 +133,10 @@ export const AvatarDropMenu = ({ size }: props) => {
                     <Link
                       href={item.href}
                       className={styles.menuLink}
-                      onClick={() => setActive(false)}
+                      onClick={() => {
+                        setActive(false);
+                        if (setOpen) setOpen(!open);
+                      }}
                     >
                       {item.label}
                     </Link>
@@ -156,7 +164,12 @@ export const AvatarDropMenu = ({ size }: props) => {
         onClick={toggleMenu}
         aria-label="Меню пользователя"
       >
-        <Avatar avatar={currentAvatar} shape="circle" size={size} />
+        <Avatar
+          avatar={currentAvatar}
+          shape="circle"
+          size={size}
+          priority={priority}
+        />
       </button>
 
       {renderDropMenu()}

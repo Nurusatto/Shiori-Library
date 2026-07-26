@@ -9,12 +9,13 @@ export type UserObject = {
  * lg — 64px
  * xl — 96px
  */
-export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl";
+export type AvatarSize = "xs" | "sm" | "md" | "lg" | "xl" | "profile" | "hero";
 
 export interface AvatarProps {
   size?: AvatarSize;
-  avatar: string | null;
+  avatar?: string | null;
   shape?: "circle" | "square";
   alt?: string;
   className?: string;
+  priority?: boolean;
 }

@@ -1,0 +1,110 @@
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &Item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+
+    background: var(--color-surface);
+
+    animation: pulse 2s ease-in-out infinite;
+
+    box-shadow: var(--shadow-sm);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(176, 224, 255, 0.12),
+        transparent
+      );
+
+      transform: translateX(-100%);
+      animation: shimmer 1.8s infinite;
+    }
+
+    background: linear-gradient(
+      135deg,
+      var(--color-surface),
+      var(--color-accent-background)
+    );
+
+    box-shadow: 0 0 8px rgba(59, 175, 218, 0.08);
+  }
+
+  &Name {
+    width: 180px;
+    height: 24px;
+  }
+  &Username {
+    width: 120px;
+    height: 16px;
+  }
+  &Bio {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  &BioLine {
+    height: 14px;
+
+    &:nth-child(1) {
+      width: 260px;
+    }
+
+    &:nth-child(2) {
+      width: 220px;
+    }
+
+    &:nth-child(3) {
+      width: 150px;
+    }
+  }
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.65;
+    }
+  }
+}
+.info {
+  display: flex;
+  flex-direction: column;
+
+  &Username {
+    color: var(--color-text-secondary);
+  }
+
+  &Details {
+    margin-top: rem(10);
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+  }
+
+  &Bio {
+    &.placeholder {
+      color: var(--text-muted, #9ca3af);
+      font-style: italic;
+      user-select: none;
+    }
+  }
+}

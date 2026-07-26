@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./style.module.scss";
 import type { AvatarProps } from "@/entities/user/model/type";
 import clsx from "clsx";
+import { avatarPixels } from "../../model/const";
 
 export const Avatar = ({
   avatar,
@@ -9,6 +10,7 @@ export const Avatar = ({
   size = "md",
   shape = "circle",
   className,
+  priority = false,
 }: AvatarProps) => {
   return (
     <div
@@ -19,7 +21,8 @@ export const Avatar = ({
           src={avatar}
           alt={alt}
           fill
-          sizes="100vw"
+          priority={priority}
+          sizes={avatarPixels[size] + "px"}
           className={styles.image}
         />
       ) : (

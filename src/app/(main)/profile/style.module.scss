@@ -1,0 +1,17 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  margin-top: rem(20);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  gap: 20px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

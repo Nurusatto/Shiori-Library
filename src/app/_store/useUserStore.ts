@@ -4,12 +4,13 @@ import { User as SupabaseUser } from "@supabase/supabase-js";
 export type Profile = {
   avatar: string;
   username: string;
-  displayName: string; // Оно же first_name
+  displayName: string;
   bio: string | null;
   phone: string | null;
+  createdAt: string;
 };
 
-type AuthStatus = "loading" | "authenticated" | "unauthenticated";
+export type AuthStatus = "loading" | "authenticated" | "unauthenticated";
 
 type AuthState = {
   auth: SupabaseUser | null;
@@ -28,7 +29,7 @@ const DEFAULT_AVATAR =
 
 export const useUserStore = create<AuthState>((set) => ({
   auth: null,
-  profile: null, // Изначально профиля нет, пока идет загрузка
+  profile: null,
   status: "loading",
 
   setAuth: (auth) =>

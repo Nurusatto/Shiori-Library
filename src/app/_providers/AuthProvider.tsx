@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const supabase = createClient();
   const setAuth = useUserStore((state) => state.setAuth);
   const setProfile = useUserStore((state) => state.setProfile);
-  const DEFAULT_AVATAR = "";
 
   useEffect(() => {
     // Вспомогательная функция, чтобы не дублировать код
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const { data, error } = await supabase
         .from("profiles")
         // Запрашиваем ВСЕ поля. Если какого-то поля (например, avatar_url) еще нет в БД, временно убери его из селекта
-        .select("username, display_name, bio, phone, avatar_url")
+        .select("username, display_name, bio, phone, avatar_url,created_at")
         .eq("id", userId)
         .maybeSingle();
 
@@ -37,7 +36,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         displayName: data.display_name || "",
         bio: data.bio || null,
         phone: data.phone || null,
-        avatar: data.avatar_url || DEFAULT_AVATAR, // fallback на дефолтную картинку
+        avatar: data.avatar_url || null,
+        createdAt: data.created_at || null,
       };
     }
 
@@ -45,8 +45,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-
-      console.log("SESSION INITIALIZED:", session);
 
       if (!session) {
         setAuth(null);
@@ -64,8 +62,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      console.log("AUTH STATE CHANGED:", _event, session);
-
       if (!session) {
         setAuth(null);
         setProfile(null);
