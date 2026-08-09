@@ -10,7 +10,14 @@ export const useBooks = () => {
     queryKey: ["booksGallery"],
     queryFn: () => fetchBooks(),
     staleTime: 1000 * 60 * 5,
-    // suspense: true,
+    // Отключаем фоновый перезапрос при повторном монтировании компонента
+    refetchOnMount: false,
+
+    // Отключаем перезапрос при возврате фокуса на вкладку браузера
+    refetchOnWindowFocus: false,
+
+    // Отключаем перезапрос при восстановлении подключения к интернету
+    refetchOnReconnect: false,
   });
 };
 

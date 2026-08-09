@@ -15,9 +15,9 @@ export class BookAI {
       model: "models/gemini-2.5-flash",
     });
   }
+
   async getInfo({ title, key }: BookAiRequest) {
-    try {
-      const prompt = `
+    const prompt = `
 You are a helpful librarian assistant named Shori.
 Provide a brief summary of the book in 3–5 sentences.
 Do NOT include any spoilers about the ending.
@@ -28,11 +28,7 @@ Open Library key: "${key}"
 At the end, politely ask: "Your assistant Shori, can I help you with anything else?"
 `;
 
-      const res = await this.model.generateContent(prompt);
-      return res.response.text();
-    } catch (err) {
-      console.error("BookAI.getInfo error:", err);
-      return "Failed to retrieve information about the book.";
-    }
+    const res = await this.model.generateContent(prompt);
+    return res.response.text();
   }
 }

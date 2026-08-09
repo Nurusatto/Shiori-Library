@@ -1,6 +1,6 @@
 .Header {
   position: sticky;
-  z-index: var(--z-index-overlay);
+  z-index: 1;
   right: 0;
   top: rem(120);
   margin-top: rem(10);

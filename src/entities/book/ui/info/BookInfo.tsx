@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import DOMPurify from "isomorphic-dompurify";
 
 import { getDescription } from "../../model/helpers";
+import { ButtonPanel } from "@/features/add-to-shelf";
 
 type Prop = {
   info: BookInf;
@@ -28,6 +29,8 @@ export const BookInfo = ({ info }: Prop) => {
         ) : (
           <div className={styles.BookNoCover}>No cover available</div>
         )}
+
+        <ButtonPanel info={info} />
       </div>
       <div className={styles.BookDetails}>
         <div className={styles.BookTitle}>

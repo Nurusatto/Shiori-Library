@@ -16,6 +16,10 @@ export async function postBookSummary(info: BookAiRequest) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(info),
   });
-  if (!response.ok) throw new Error(`Request error: ${response.status}`);
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    // Пробрасываем ошибку с текстом из ответа
+    throw new Error(errorData.error || "UNKNOWN_ERROR");
+  }
   return response.json() as Promise<{ info: string }>;
 }

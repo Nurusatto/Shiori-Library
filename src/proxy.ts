@@ -25,7 +25,7 @@ const protectedPrefixes = [""];
 // 3. Страницы только для гостей
 const authRoutes = ["/login", "/register"];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const { supabase, response } = createClientForMiddleware(request);
   const {

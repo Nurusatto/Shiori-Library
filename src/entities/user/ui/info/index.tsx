@@ -8,9 +8,6 @@ type prop = {
 };
 
 export const UserInfo = ({ profile, status }: prop) => {
-  if (!profile) {
-    return null;
-  }
   if (status === "loading") {
     return (
       <div className={styles.skeleton}>
@@ -27,14 +24,25 @@ export const UserInfo = ({ profile, status }: prop) => {
     );
   }
 
+  if (!profile) {
+    return (
+      <div className={clsx(styles.info, styles.empty)}>
+        <span className={styles.infoDisplayName}>User not found</span>
+        <span className={styles.infoUsername}>@unknown</span>
+        <div className={styles.infoDetails}>
+          <span className={clsx(styles.infoBio, styles.placeholder)}>
+            Could not load profile information.
+          </span>
+        </div>
+      </div>
+    );
+  }
+
   const joinedDate = new Date(profile.createdAt);
-  const text = `Member since July 2026 ${joinedDate.toLocaleDateString(
-    "en-US",
-    {
-      month: "long",
-      year: "numeric",
-    },
-  )}`;
+  const text = `Member since ${joinedDate.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  })}`;
   return (
     <div className={styles.info}>
       <span className={styles.infoDisplayName}>{profile.displayName}</span>

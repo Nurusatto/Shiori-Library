@@ -8,7 +8,7 @@ function getRandomGenre(): BookGenreType {
 export async function fetchBookRecommendation() {
   const subject = getRandomGenre();
   const response = await fetch(
-    `https://openlibrary.org/subjects/${subject.toLowerCase().replace(/\s/g, "_")}.json?limit=50`,
+    `https://openlibrary.org/subjects/${subject.toLowerCase().replace(/\s/g, "_")}.json?limit=5`,
   );
   const data = await response.json();
   const book = data.works?.[Math.floor(Math.random() * data.works.length)];

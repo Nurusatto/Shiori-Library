@@ -19,8 +19,8 @@ const nextConfig: NextConfig = {
     ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "src/app/_styles")],
-    prependData: `@use "helpers/index.scss" as *;`,
+    loadPaths: [path.join(__dirname, "src/app/_styles")],
+    additionalData: '@use "helpers/index.scss" as *;',
   },
 };
 

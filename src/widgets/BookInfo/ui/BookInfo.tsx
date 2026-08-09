@@ -9,7 +9,7 @@ type Prop = {
 };
 
 export const Bookinfo = ({ bookObj }: Prop) => {
-  const authors = bookObj.authors;
+  const authors = bookObj?.authors ?? [];
 
   return (
     <section className={styles.BookSection}>

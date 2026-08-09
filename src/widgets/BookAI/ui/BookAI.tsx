@@ -12,7 +12,7 @@ type Prop = {
 };
 
 export const BookAI = ({ bookObj }: Prop) => {
-  const { data, isPending, mutate } = useBookSummary();
+  const { data, isPending, mutate, isError, error } = useBookSummary();
   useEffect(() => {
     mutate({ key: bookObj.key, title: bookObj.title });
   }, [bookObj.title, bookObj.key, mutate]);
@@ -34,6 +34,13 @@ export const BookAI = ({ bookObj }: Prop) => {
           </span>
         )}
         {isPending && <LoadingDots />}
+        {isError && (
+          <span className={styles.ErrorText}>
+            {error?.message === "QUOTA_EXCEEDED"
+              ? "API tokens depleted. Please try again later."
+              : "An error occurred while loading book information."}
+          </span>
+        )}
       </div>
     </section>
   );
