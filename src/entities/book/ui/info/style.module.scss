@@ -77,5 +77,11 @@
     padding: rem(5);
     color: var(--color-primary);
     transition: var(--transition-duration);
+    background-color: var(--color-background);
+
+    @include hover {
+      background-color: var(--color-accent-background);
+      box-shadow: var(--shadow-glow-sm);
+    }
   }
 }

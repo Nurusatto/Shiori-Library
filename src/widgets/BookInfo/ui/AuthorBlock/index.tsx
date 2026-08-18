@@ -10,7 +10,7 @@ type AuthorBlockProps = {
 };
 
 export const AuthorBlock = ({ authors }: AuthorBlockProps) => {
-  const authorKeys = authors.map((a) => a.author.key);
+  const authorKeys = authors.map((a) => a.author?.key);
   const authorQueries = useAuthors(authorKeys);
   const isSingleAuthor = authors.length === 1;
 

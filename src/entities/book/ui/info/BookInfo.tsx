@@ -8,12 +8,23 @@ import DOMPurify from "isomorphic-dompurify";
 
 import { getDescription } from "../../model/helpers";
 import { ButtonPanel } from "@/features/add-to-shelf";
+import { SubjectChips } from "@/shared/utils/tagChips";
+import { useRouter } from "next/navigation";
 
 type Prop = {
   info: BookInf;
 };
 
 export const BookInfo = ({ info }: Prop) => {
+  const router = useRouter();
+
+  const handleSelectSubject = (tag: string) => {
+    const targetUrl = `/search?subject=${encodeURIComponent(tag)}`;
+
+    // Переходим на страницу поиска
+    router.push(targetUrl);
+  };
+
   return (
     <div className={styles.BookInfoBlock} id="info">
       <div className={styles.BookWrap}>
@@ -71,11 +82,11 @@ export const BookInfo = ({ info }: Prop) => {
         )}
         {info.subjects && info.subjects.length > 0 && (
           <div className={styles.BookGroup}>
-            {info.subjects.map((subject) => (
-              <div key={subject} className={styles.BookBadge}>
-                <span className={styles.BookBadgeText}>{subject}</span>
-              </div>
-            ))}
+            <SubjectChips
+              subjects={info.subjects}
+              className={styles.BookBadge}
+              onSelectSubject={handleSelectSubject}
+            />
           </div>
         )}
         {info.description && (

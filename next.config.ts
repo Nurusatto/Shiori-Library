@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      // {
+      //   protocol: "https",
+      //   hostname: "covers.openlibrary.org",
+      //   pathname: "/b/**",
+      // },
     ],
   },
   sassOptions: {

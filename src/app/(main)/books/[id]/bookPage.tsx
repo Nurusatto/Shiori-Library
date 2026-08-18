@@ -4,14 +4,22 @@ import { HeaderBlock } from "@/widgets/BookInfo";
 import { BookSlider } from "@/widgets/BookSlider";
 import { BookAI } from "@/widgets/BookAI";
 import { Footer } from "@/widgets/Footer";
+import { BookTracker } from "@/features/tracker/book";
 
 type Prop = {
   bookObj: BookInf;
 };
 
 export const BookPage = ({ bookObj }: Prop) => {
+  console.log("bookObj:", bookObj);
   return (
     <>
+      <BookTracker
+        bookId={bookObj.key}
+        title={bookObj.title}
+        covers={bookObj.covers}
+      />
+
       <main className="container">
         <HeaderBlock />
         <Bookinfo bookObj={bookObj} />
