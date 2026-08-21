@@ -10,6 +10,7 @@ import { getDescription } from "../../model/helpers";
 import { ButtonPanel } from "@/features/add-to-shelf";
 import { SubjectChips } from "@/shared/utils/tagChips";
 import { useRouter } from "next/navigation";
+import { useUserStore } from "@/app/_store/useUserStore";
 
 type Prop = {
   info: BookInf;
@@ -17,6 +18,7 @@ type Prop = {
 
 export const BookInfo = ({ info }: Prop) => {
   const router = useRouter();
+  const { status } = useUserStore();
 
   const handleSelectSubject = (tag: string) => {
     const targetUrl = `/search?subject=${encodeURIComponent(tag)}`;
@@ -41,7 +43,7 @@ export const BookInfo = ({ info }: Prop) => {
           <div className={styles.BookNoCover}>No cover available</div>
         )}
 
-        <ButtonPanel info={info} />
+        <ButtonPanel info={info} status={status} />
       </div>
       <div className={styles.BookDetails}>
         <div className={styles.BookTitle}>

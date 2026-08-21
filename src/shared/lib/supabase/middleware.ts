@@ -17,12 +17,17 @@ export const createClientForMiddleware = (request: NextRequest) => {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
+          // 🟢 1. Обновляем куки в самом request
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value),
           );
+
+          // 🟢 2. Создаем новый response с обновленным request
           response = NextResponse.next({
             request,
           });
+
+          // 🟢 3. Переносим все куки в новый response
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options),
           );

@@ -11,7 +11,6 @@ type Prop = {
 };
 
 export const BookPage = ({ bookObj }: Prop) => {
-  console.log("bookObj:", bookObj);
   return (
     <>
       <BookTracker

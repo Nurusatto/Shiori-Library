@@ -6,16 +6,22 @@ import { useEffect } from "react";
 import styles from "./style.module.scss";
 import { LoadingDots } from "@/shared/ui/DotLoader";
 import Link from "next/link";
+import { useUserStore } from "@/app/_store/useUserStore";
 
 type Prop = {
   bookObj: BookInf;
 };
 
 export const BookAI = ({ bookObj }: Prop) => {
+  const { status } = useUserStore();
+  const isAuthenticated = status === "authenticated";
   const { data, isPending, mutate, isError, error } = useBookSummary();
   useEffect(() => {
+    if (!isAuthenticated || !bookObj.key) return;
+
     mutate({ key: bookObj.key, title: bookObj.title });
-  }, [bookObj.title, bookObj.key, mutate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bookObj.title, bookObj.key, isAuthenticated, status]);
 
   return (
     <section className={styles.BookAiInner} id="AI">
@@ -25,6 +31,12 @@ export const BookAI = ({ bookObj }: Prop) => {
         </span>
       </div>
       <div className={styles.BookAI}>
+        {!isAuthenticated && (
+          <span>
+            I’m Shiori. I won’t speak with unauthenticated users. Please log in
+            or create an account to talk to me.
+          </span>
+        )}
         {data && (
           <span>
             {data.info}{" "}

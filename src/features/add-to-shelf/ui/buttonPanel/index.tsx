@@ -5,8 +5,15 @@ import styles from "./style.module.scss";
 import { BookShelf } from "../../model/types";
 import { BookInf } from "@/entities/book";
 import { useUserBook } from "../../model/query";
+import { toast } from "sonner";
 
-export const ButtonPanel = ({ info }: { info: BookInf }) => {
+export const ButtonPanel = ({
+  info,
+  status,
+}: {
+  info: BookInf;
+  status: string;
+}) => {
   const [open, setOpen] = useState<boolean>(false);
   const userBookMutation = useUserBook();
   const panelRef = useRef<HTMLDivElement | null>(null);
@@ -36,6 +43,11 @@ export const ButtonPanel = ({ info }: { info: BookInf }) => {
   const handleSelect = async (shelf: BookShelf) => {
     setOpen(false);
 
+    if (status !== "authenticated") {
+      toast.error("Please log in to add books to your library.");
+      return;
+    }
+
     userBookMutation.mutate({ book: info, shelf });
   };
 
@@ -43,7 +55,13 @@ export const ButtonPanel = ({ info }: { info: BookInf }) => {
     <div className={styles.panel} ref={panelRef}>
       <button
         className={styles.panelButton}
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          if (status !== "authenticated") {
+            toast.error("Please log in to add books to your library.");
+            return;
+          }
+          setOpen(!open);
+        }}
         disabled={userBookMutation.isPending}
       >
         {userBookMutation.isPending ? "Saving..." : "Add to Library"}
