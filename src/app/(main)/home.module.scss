@@ -1,0 +1,122 @@
+.home  {
+  --home-accent: #bdcda8;
+  --home-panel: color-mix(in srgb, var(--color-surface) 55%, var(--color-background));
+  background: var(--color-background);
+}
+:global([data-theme="light"]) .home  {
+  --home-accent: #4b6b4e;
+}
+.content  {
+  padding-bottom: 28px;
+}
+.assistant  {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  padding: 32px;
+  margin: 14px 0 60px;
+  border: 1px solid color-mix(in srgb, var(--home-accent) 22%, var(--color-border));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--home-accent) 5%, var(--color-background));
+}
+.assistantIcon  {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  color: var(--home-accent);
+  border: 1px solid color-mix(in srgb, var(--home-accent) 25%, transparent);
+  border-radius: 50%;
+}
+.assistantCopy  {
+  flex: 1;
+}
+.eyebrow  {
+  color: var(--home-accent);
+  font-size: 9px;
+  letter-spacing: .16em;
+}
+.assistantCopy h2  {
+  font-family: Georgia, serif;
+  font-size: clamp(21px, 2.3vw, 28px);
+  font-weight: 400;
+  margin: 8px 0;
+  line-height: 1.3;
+}
+.assistantCopy p  {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+.assistantLink  {
+  align-items: center;
+  gap: 18px;
+  padding: 13px 18px;
+  background: var(--home-accent);
+  color: var(--color-background);
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.assistantLink:focus-visible, .wordmark:focus-visible  {
+  outline: 2px solid var(--home-accent);
+  outline-offset: 5px;
+}
+.footer  {
+  border-top: 1px solid var(--color-border);
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: var(--color-text-secondary);
+}
+.wordmark  {
+  align-items: center;
+  gap: 7px;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  color: var(--color-text-primary);
+}
+.wordmark svg  {
+  color: var(--home-accent);
+}
+.wordmark span  {
+  font-family: var(--font-base), sans-serif;
+  font-size: 10px;
+  align-self: end;
+  padding-bottom: 4px;
+  color: var(--color-text-secondary);
+}
+.footer p  {
+  font-size: 11px;
+  margin-left: auto;
+}
+.footer > span  {
+  flex-basis: 100%;
+  font-size: 10px;
+}
+@media (max-width: 767px)  {
+  .assistant  {
+    flex-wrap: wrap;
+    padding: 24px;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .assistantIcon  {
+    width: 42px;
+    height: 42px;
+  }
+  .assistantCopy  {
+    flex-basis: calc(100% - 60px);
+  }
+  .assistantLink  {
+    margin-left: 58px;
+  }
+  .footer  {
+    gap: 12px;
+  }
+  .footer p  {
+    margin-left: 0;
+  }
+}

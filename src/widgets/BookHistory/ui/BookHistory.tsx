@@ -13,7 +13,7 @@ export const BookHistory = () => {
 
   return (
     <section className={styles.HistorySection}>
-      <h2 className={styles.HistoryTitle}>Viewing History</h2>
+      <h2 className={styles.HistoryTitle}>Pick up where you left off</h2>
       <ul className={styles.HistoryList}>
         {history.map((book) => (
           <CardAlt book={book} key={book.key} />
