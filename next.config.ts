@@ -25,7 +25,9 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     loadPaths: [path.join(__dirname, "src/app/_styles")],
-    additionalData: '@use "helpers/index.scss" as *;',
+    additionalData: `@use "${path
+      .join(__dirname, "src/app/_styles/helpers/index.scss")
+      .replace(/\\/g, "/")}" as *;`,
   },
 };
 
