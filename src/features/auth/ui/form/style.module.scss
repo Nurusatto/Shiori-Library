@@ -1,0 +1,79 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: rem(300);
+  margin: 0 auto;
+  gap: rem(20);
+  border: var(--border-1);
+  padding: rem(20);
+
+  border-radius: var(--border-radius-lg);
+
+  &Logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: rem(10);
+  }
+
+  &Field {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+      margin-bottom: 0.5rem;
+    }
+
+    & input {
+      padding: 0.5rem;
+      // border: 1px solid #ccc;
+      border: var(--border-1);
+      border-radius: 4px;
+      color: var(--color-primary);
+      outline-color: var(--color-primary);
+      background-color: var(--color-background);
+    }
+
+    & .formError {
+      color: red;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  &Switch {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  &Button {
+    width: 100%;
+    padding: rem(10);
+    border-radius: var(--border-radius-lg);
+    border: var(--border-1);
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    transition:
+      background-color var(--transition-duration) ease,
+      transform var(--transition-duration) ease;
+
+    @include hover {
+      background-color: #111; // чуть светлее чёрного
+      transform: translateY(-2px);
+    }
+  }
+
+  &Link {
+    color: var(--color-primary);
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+
+    @include hover {
+      text-decoration: underline;
+      color: #1d4ed8;
+    }
+  }
+}

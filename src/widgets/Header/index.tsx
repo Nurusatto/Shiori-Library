@@ -1,16 +1,19 @@
 "use client";
 
-import { useBreakpoint } from "@/shared/hooks/useBreakpoint";
-
 import { HeaderDesktop } from "@/widgets/Header/ui/desktop";
 import { HeaderMobile } from "@/widgets/Header/ui/mobile";
 
-export const Header = () => {
-  const display = useBreakpoint();
+import styles from "./style.module.scss";
+import { useScrolled } from "@/shared/hooks/useScrolled";
+import clsx from "clsx";
 
-  if (display === "desktop" || display === "laptop") {
-    return <HeaderDesktop />;
-  } else if (display === "tablet" || display === "mobile") {
-    return <HeaderMobile />;
-  }
+export const Header = () => {
+  const Scroll = useScrolled();
+
+  return (
+    <header className={clsx(styles.Header, Scroll && styles.Scrolled)}>
+      <HeaderDesktop className={styles.desktop} />
+      <HeaderMobile className={styles.mobile} />
+    </header>
+  );
 };

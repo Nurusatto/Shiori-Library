@@ -10,11 +10,24 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "covers.openlibrary.org",
       },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+        port: "",
+        pathname: "/**",
+      },
+      // {
+      //   protocol: "https",
+      //   hostname: "covers.openlibrary.org",
+      //   pathname: "/b/**",
+      // },
     ],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "src/app/_styles")],
-    prependData: `@use "helpers/index.scss" as *;`,
+    loadPaths: [path.join(__dirname, "src/app/_styles")],
+    additionalData: `@use "${path
+      .join(__dirname, "src/app/_styles/helpers/index.scss")
+      .replace(/\\/g, "/")}" as *;`,
   },
 };
 

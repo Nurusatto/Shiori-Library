@@ -1,34 +1,42 @@
-import styles from "./styles.module.scss";
 import clsx from "clsx";
+import styles from "./styles.module.scss";
 
+import { HEADER_LINKS } from "@/shared/config/navigation";
+import { isActiveLink } from "@/shared/hooks/isActiveLink";
+import { ShioriLogo } from "@/shared/image/react-svg/logo";
 import Link from "next/link";
-import { LINKS } from "@/app/_config/links/Header";
 import { usePathname } from "next/navigation";
 
-import { isActiveLink } from "@/shared/hooks/isActiveLink";
+import { AvatarDropMenu } from "@/features/user/ui/avatarDropMenu";
 
-export const HeaderDesktop = () => {
+type prop = {
+  className?: string;
+};
+
+export const HeaderDesktop = ({ className }: prop) => {
   const url = usePathname() || "";
 
   return (
-    <header className={styles.Header}>
-      <div className={`container ${styles.HeaderInner}`}>
-        <nav className={styles.HeaderNav}>
-          {LINKS.map((link) => (
-            <Link
-              href={link.path}
-              key={link.name}
-              className={clsx(
-                styles.HeaderLinks,
-                isActiveLink(link.path, url) && styles.isActive,
-              )}
-            >
-              {<link.icon />}
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
+    <div className={`container ${styles.HeaderInner} ${className}`}>
+      <Link href="/">
+        <ShioriLogo />
+      </Link>
+      <nav className={styles.HeaderNav}>
+        {HEADER_LINKS.map((link) => (
+          <Link
+            href={link.path}
+            key={link.name}
+            className={clsx(
+              styles.HeaderLinks,
+              isActiveLink(link.path, url) && styles.isActive,
+            )}
+          >
+            {<link.icon />}
+            {link.name}
+          </Link>
+        ))}
+      </nav>
+      <AvatarDropMenu />
+    </div>
   );
 };

@@ -10,7 +10,7 @@ export const POST = async (req: NextRequest) => {
         {
           status: 400,
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
     }
 
@@ -22,9 +22,17 @@ export const POST = async (req: NextRequest) => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    console.error(err);
-    return new Response(JSON.stringify({ error: "server error" }), {
-      status: 500,
+    console.error("API Route Error:", err);
+
+    const errorObj = err as { status?: number; message?: string };
+
+    const isRateLimit =
+      errorObj?.status === 429 || errorObj?.message?.includes("429");
+
+    const message = isRateLimit ? "QUOTA_EXCEEDED" : "SERVER_ERROR";
+
+    return new Response(JSON.stringify({ error: message }), {
+      status: isRateLimit ? 429 : 500,
       headers: { "Content-Type": "application/json" },
     });
   }

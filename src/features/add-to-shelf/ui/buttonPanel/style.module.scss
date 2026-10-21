@@ -1,0 +1,45 @@
+.panel {
+  position: relative;
+
+  &Button {
+    background-color: var(--color-background);
+    border-radius: rem(20);
+    border: var(--border-1);
+    color: var(--color-primary);
+    padding: rem(6) rem(12);
+  }
+
+  &Wrap {
+    background-color: var(--color-background);
+    padding: rem(12);
+    margin-top: rem(10);
+    border: var(--border-1);
+    position: absolute;
+    display: none;
+    border-radius: var(--border-radius-md);
+
+    &.isOpen {
+      display: block;
+    }
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: rem(4);
+  flex-direction: column;
+
+  li {
+    cursor: pointer;
+    padding: rem(6) rem(10);
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-primary); /* Подсветка при наведении */
+    }
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { LINKS } from "@/app/_config/links/bookPage";
+import { BOOK_PAGE_LINKS } from "@/shared/config/navigation";
 
 import styles from "./style.module.scss";
 import clsx from "clsx";
@@ -14,7 +14,7 @@ export const HeaderBlock = () => {
   return (
     <div className={clsx(styles.Header)}>
       <ul className={styles.HeaderList}>
-        {LINKS.map((link) => (
+        {BOOK_PAGE_LINKS.map((link) => (
           <li key={link.name} className={styles.HeaderItem}>
             <a href={link.href} className={styles.HeaderLink}>
               {link.name}

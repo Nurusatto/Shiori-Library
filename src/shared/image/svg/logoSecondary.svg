@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Стили для кастомизации -->
+  <style>
+    .bg { fill: none; }
+    .main-branch { fill: none; stroke: #2C402E; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    .torii-book { fill: none; stroke: #2C402E; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+    .sakura-petal { fill: #E5989B; opacity: 0.9; }
+    .sakura-center { fill: #B56576; }
+    .text-title { font-family: 'Helvetica Neue', 'Segoe UI', Arial, sans-serif; font-size: 24px; font-weight: 700; fill: #2C402E; letter-spacing: 6px; text-anchor: middle; }
+    .text-subtitle { font-family: 'Hiragino Mincho Pro', 'MS Mincho', serif; font-size: 18px; fill: #6B705C; letter-spacing: 4px; text-anchor: middle; }
+    .accent-circle { fill: none; stroke: #E5989B; stroke-width: 2; stroke-dasharray: 4 4; }
+  </style>
+
+  <!-- Внешний декоративный круг -->
+  <circle cx="250" cy="220" r="180" class="bg" />
+  <circle cx="250" cy="220" r="170" class="accent-circle" />
+
+  <g id="logo-graphics">
+    <!-- Стилизованная книга-тории -->
+    <!-- Страницы книги (основание) -->
+    <path d="M 160,290 Q 210,295 250,280 Q 290,295 340,290" class="torii-book" stroke-width="6" />
+    <path d="M 150,270 Q 205,275 250,260 Q 295,275 350,270" class="torii-book" />
+    
+    <!-- Вертикальные колонны Тории -->
+    <path d="M 200,268 L 200,150" class="torii-book" />
+    <path d="M 300,268 L 300,150" class="torii-book" />
+    
+    <!-- Верхние перекладины ворот -->
+    <path d="M 180,155 L 320,155" class="torii-book" stroke-width="6" />
+    <path d="M 170,135 Q 250,145 330,135" class="torii-book" stroke-width="10" />
+
+    <!-- Ветка сакуры, изящно огибающая ворота -->
+    <path d="M 360,120 C 320,100 280,110 240,140 C 210,165 180,160 150,195" class="main-branch" />
+    <path d="M 250,135 C 240,110 210,105 190,115" class="main-branch" stroke-width="4" />
+
+    <!-- Лепестки и цветы сакуры -->
+    <!-- Цветок 1 (справа вверху) -->
+    <g transform="translate(320, 105) scale(0.8)">
+      <circle cx="0" cy="0" r="8" class="sakura-center"/>
+      <path d="M 0,0 C -10,-15 10,-15 0,0 C 15,-10 15,10 0,0 C 10,15 -10,15 0,0 C -15,10 -15,-10 0,0" class="sakura-petal"/>
+    </g>
+    
+    <!-- Цветок 2 (в центре на ветке) -->
+    <g transform="translate(235, 145) scale(0.7)">
+      <path d="M 0,0 C -10,-15 10,-15 0,0 C 15,-10 15,10 0,0 C 10,15 -10,15 0,0 C -15,10 -15,-10 0,0" class="sakura-petal"/>
+    </g>
+
+    <!-- Цветок 3 (слева на конце ветки) -->
+    <g transform="translate(145, 200) scale(0.6)">
+      <path d="M 0,0 C -10,-15 10,-15 0,0 C 15,-10 15,10 0,0 C 10,15 -10,15 0,0 C -15,10 -15,-10 0,0" class="sakura-petal"/>
+    </g>
+
+    <!-- Падающие отдельные лепестки -->
+    <path d="M 170,230 Q 160,245 165,250 Q 175,250 170,230" class="sakura-petal" transform="rotate(-20, 170, 230)" />
+    <path d="M 280,180 Q 275,190 278,195 Q 285,195 280,180" class="sakura-petal" transform="rotate(15, 280, 180)" />
+    <path d="M 330,220 Q 320,230 322,235 Q 330,232 330,220" class="sakura-petal" transform="rotate(40, 330, 220)" />
+  </g>
+
+  <!-- Текстовый блок -->
+  <text x="256" y="415" class="text-title">SHIORI LIBRARY</text>
+  <text x="250" y="445" class="text-subtitle">栞図書館</text>
+</svg>

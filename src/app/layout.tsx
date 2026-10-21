@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "@/app/_styles/index.scss";
 
 import { ClientProvider } from "@/app/_providers/ClientProvider";
-import { Header } from "@/widgets/Header";
 
 const InterFont = Inter({
   weight: ["400", "500"],
@@ -34,12 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${InterFont.variable}`}>
-        <ClientProvider>
-          <Header />
-          {children}
-        </ClientProvider>
+        <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
   );

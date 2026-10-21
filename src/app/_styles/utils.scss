@@ -1,6 +1,5 @@
 @use "./helpers/mixins.scss" as *;
 @use "./helpers/media.scss" as *;
-@use "./helpers/variables.scss" as *;
 
 .container {
   max-width: var(--container-width);

@@ -1,7 +1,5 @@
 "use client";
-import { useAuthors } from "@/entities/Author/model/query";
-import { AuthorObj } from "@/entities/Author/index";
-import { AuthorCard } from "@/entities/Author/ui/card";
+import { AuthorCard, AuthorObj, useAuthors } from "@/entities/Author";
 
 import styles from "./style.module.scss";
 import { CatLoader } from "@/shared/ui/CatLoader";
@@ -12,7 +10,7 @@ type AuthorBlockProps = {
 };
 
 export const AuthorBlock = ({ authors }: AuthorBlockProps) => {
-  const authorKeys = authors.map((a) => a.author.key);
+  const authorKeys = authors.map((a) => a.author?.key);
   const authorQueries = useAuthors(authorKeys);
   const isSingleAuthor = authors.length === 1;
 

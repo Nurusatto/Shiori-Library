@@ -2,6 +2,10 @@ export type LibraryResponse = {
   docs: BookItem[];
 };
 
+export type SearchMode = "q" | "author" | "subject";
+
+export type SearchInput = string | { query: string; type?: SearchMode };
+
 export type BookItem = {
   key: string; //id book
   title: string;
