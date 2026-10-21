@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 import { BurgerButton } from "./burger";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ArrowMobile } from "./arrow";
 import { BooksNav } from "./navBook";
 import { NavHeader } from "./navHeader";
@@ -17,7 +18,7 @@ export const HeaderMobile = ({ className }: prop) => {
   const url = usePathname() || "";
 
   const isBookPage = url.startsWith("/books");
-  const isHomeOrSearchPage = url === "/" || url.startsWith("/search");
+  // const isHomeOrSearchPage = url === "/" || url.startsWith("/search");
 
   useEffect(() => {
     const html = document.documentElement;
@@ -34,7 +35,7 @@ export const HeaderMobile = ({ className }: prop) => {
     <div className={`container ${styles.HeaderInner} ${className}`}>
       <NavHeader open={open} setOpen={setOpen} url={url} />
       <BooksNav isBookPage={isBookPage} open={open} />
-      <ArrowMobile isHomeOrSearchPage={isHomeOrSearchPage} open={open} />
+      {/* <ArrowMobile isHomeOrSearchPage={isHomeOrSearchPage} open={open} /> */}
       <BurgerButton open={open} setOpen={setOpen} />
     </div>
   );
